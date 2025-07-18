@@ -24,20 +24,25 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				coral: {
-					DEFAULT: '#FF6B6B',
-					light: '#FFB3B3',
-					dark: '#E85555'
+				violet: {
+					DEFAULT: '#8B5CF6',
+					light: '#C4B5FD',
+					dark: '#7C3AED'
 				},
-				turquoise: {
-					DEFAULT: '#4ECDC4',
-					light: '#A7E3DE',
-					dark: '#3BB5AD'
+				emerald: {
+					DEFAULT: '#10B981',
+					light: '#A7F3D0',
+					dark: '#059669'
 				},
-				navy: {
-					DEFAULT: '#2C3E50',
-					light: '#34495E',
-					dark: '#1A252F'
+				slate: {
+					DEFAULT: '#475569',
+					light: '#94A3B8',
+					dark: '#334155'
+				},
+				orange: {
+					DEFAULT: '#F97316',
+					light: '#FED7AA',
+					dark: '#EA580C'
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
