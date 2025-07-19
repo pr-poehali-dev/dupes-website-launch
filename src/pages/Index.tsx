@@ -80,7 +80,7 @@ const Index = () => {
                 <p className="text-gray-600 text-sm">Поддержка</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-montserrat font-bold text-slate mb-2">7 дней</div>
+                <div className="text-3xl md:text-4xl font-montserrat font-bold text-slate mb-2">3 дня</div>
                 <p className="text-gray-600 text-sm">Возврат</p>
               </div>
             </div>
@@ -149,7 +149,7 @@ const Index = () => {
                 <Icon name="RotateCcw" size={32} className="text-orange mr-3" />
                 <Badge className="bg-orange text-white">ГАРАНТИЯ</Badge>
               </div>
-              <h3 className="font-montserrat font-bold text-xl text-slate mb-2">Возврат 3 дней</h3>
+              <h3 className="font-montserrat font-bold text-xl text-slate mb-2">Возврат 3 дня</h3>
               <p className="text-gray-600 mb-4">Не подошло? Вернём деньги без вопросов</p>
               <Button variant="outline" className="w-full border-orange text-orange hover:bg-orange hover:text-white">
                 Условия возврата
