@@ -125,7 +125,7 @@ const Index = () => {
                 <Icon name="Gift" size={32} className="text-violet mr-3" />
                 <Badge className="bg-violet text-white">НОВИНКА</Badge>
               </div>
-              <h3 className="font-montserrat font-bold text-xl text-slate mb-2">Скидка 20%</h3>
+              <h3 className="font-montserrat font-bold text-xl text-slate mb-2">Скидка 15%</h3>
               <p className="text-gray-600 mb-4">На первую покупку новым клиентам</p>
               <Button className="w-full bg-violet hover:bg-violet-dark text-white">
                 Получить скидку
@@ -138,7 +138,7 @@ const Index = () => {
                 <Badge className="bg-emerald text-white">ДОСТАВКА</Badge>
               </div>
               <h3 className="font-montserrat font-bold text-xl text-slate mb-2">Бесплатная доставка</h3>
-              <p className="text-gray-600 mb-4">При заказе от 3000 рублей</p>
+              <p className="text-gray-600 mb-4">При заказе от 2000 рублей</p>
               <Button variant="outline" className="w-full border-emerald text-emerald hover:bg-emerald hover:text-white">
                 Подробнее
               </Button>
@@ -149,7 +149,7 @@ const Index = () => {
                 <Icon name="RotateCcw" size={32} className="text-orange mr-3" />
                 <Badge className="bg-orange text-white">ГАРАНТИЯ</Badge>
               </div>
-              <h3 className="font-montserrat font-bold text-xl text-slate mb-2">Возврат 7 дней</h3>
+              <h3 className="font-montserrat font-bold text-xl text-slate mb-2">Возврат 3 дней</h3>
               <p className="text-gray-600 mb-4">Не подошло? Вернём деньги без вопросов</p>
               <Button variant="outline" className="w-full border-orange text-orange hover:bg-orange hover:text-white">
                 Условия возврата
@@ -268,7 +268,7 @@ const Index = () => {
                 <p className="text-gray-600">Положительных отзывов</p>
               </div>
               <div>
-                <div className="text-4xl font-montserrat font-bold text-slate mb-2">2 года</div>
+                <div className="text-3xl font-montserrat font-bold text-slate mb-2 rounded-none">С 2024 года</div>
                 <p className="text-gray-600">На рынке</p>
               </div>
             </div>
