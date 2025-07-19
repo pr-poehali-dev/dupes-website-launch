@@ -18,7 +18,7 @@ const Index = () => {
               />
               <div className="hidden md:flex space-x-6">
                 <a href="#home" className="text-slate font-medium hover:text-violet transition-colors">Главная</a>
-                <a href="#catalog" className="text-slate font-medium hover:text-violet transition-colors">Каталог</a>
+                <a href="#catalog" className="text-slate font-medium hover:text-violet transition-colors">Telegram</a>
                 <a href="#about" className="text-slate font-medium hover:text-violet transition-colors">О нас</a>
                 <a href="#delivery" className="text-slate font-medium hover:text-violet transition-colors">Доставка</a>
                 <a href="#contacts" className="text-slate font-medium hover:text-violet transition-colors">Контакты</a>
@@ -55,13 +55,17 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button size="lg" className="bg-violet hover:bg-violet-dark text-white font-montserrat font-semibold px-10 py-5 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all">
-                Смотреть каталог
-                <Icon name="ArrowRight" size={20} className="ml-2" />
+              <Button asChild size="lg" className="bg-violet hover:bg-violet-dark text-white font-montserrat font-semibold px-10 py-5 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all">
+                <a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer">
+                  Смотреть каталог
+                  <Icon name="ArrowRight" size={20} className="ml-2" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-emerald text-emerald hover:bg-emerald hover:text-white font-montserrat font-semibold px-10 py-5 text-lg rounded-xl">
-                <Icon name="Send" size={20} className="mr-2" />
-                Telegram канал
+              <Button asChild size="lg" variant="outline" className="border-2 border-emerald text-emerald hover:bg-emerald hover:text-white font-montserrat font-semibold px-10 py-5 text-lg rounded-xl">
+                <a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Send" size={20} className="mr-2" />
+                  Telegram канал
+                </a>
               </Button>
             </div>
 
@@ -159,47 +163,87 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Catalog Preview */}
+      {/* Telegram Channel Catalog */}
       <section id="catalog" className="py-16 bg-gradient-to-br from-slate/5 to-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-montserrat text-4xl font-bold text-slate mb-4">
-              Наш каталог
+              Весь ассортимент в Telegram
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Огромный выбор модной одежды для всех стилей и случаев жизни
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Огромный выбор модной одежды, актуальные новинки, акции и скидки — всё это 
+              в нашем Telegram канале! Подпишись и будь в курсе всех трендов 🔥
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {[
-              { title: "Топы & Блузы", icon: "Shirt", color: "violet", items: "120+ товаров" },
-              { title: "Брюки & Джинсы", icon: "Wallet", color: "emerald", items: "85+ товаров" },
-              { title: "Платья", icon: "Heart", color: "orange", items: "95+ товаров" },
-              { title: "Аксессуары", icon: "Star", color: "slate", items: "200+ товаров" },
-              { title: "Верхняя одежда", icon: "ShirtIcon", color: "violet", items: "60+ товаров" },
-              { title: "Обувь", icon: "Footprints", color: "emerald", items: "75+ товаров" },
-              { title: "Спортивная", icon: "Dumbbell", color: "orange", items: "45+ товаров" },
-              { title: "Нижнее бельё", icon: "ShirtIcon", color: "slate", items: "30+ товаров" }
-            ].map((category, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 hover:border-violet/20 bg-white">
-                <div className={`bg-gradient-to-br from-${category.color}/20 to-${category.color}/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4`}>
-                  <Icon name={category.icon as any} size={32} className={`text-${category.color}`} />
+          <div className="max-w-4xl mx-auto">
+            <Card className="p-12 bg-gradient-to-br from-violet/10 via-emerald/5 to-orange/10 border-2 border-violet/20 text-center">
+              <div className="bg-gradient-to-br from-violet/30 to-emerald/20 w-24 h-24 rounded-2xl flex items-center justify-center mx-auto mb-8">
+                <Icon name="Send" size={48} className="text-white" />
+              </div>
+              
+              <h3 className="font-montserrat text-3xl font-bold text-slate mb-6">
+                @dupeess
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="text-center">
+                  <div className="bg-violet/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon name="Shirt" size={32} className="text-violet" />
+                  </div>
+                  <h4 className="font-semibold text-slate mb-2">Полный каталог</h4>
+                  <p className="text-sm text-gray-600">Вся одежда и аксессуары в одном месте</p>
                 </div>
-                <h3 className="font-montserrat font-semibold text-slate text-sm mb-2">{category.title}</h3>
-                <p className="text-xs text-gray-500 mb-3">{category.items}</p>
-                <Button variant="outline" size="sm" className="w-full text-xs border-violet/30 text-violet hover:bg-violet hover:text-white">
-                  Смотреть
-                </Button>
-              </Card>
-            ))}
-          </div>
-          
-          <div className="text-center">
-            <Button size="lg" className="bg-violet hover:bg-violet-dark text-white font-montserrat font-semibold px-8 py-4">
-              Посмотреть весь каталог
-              <Icon name="ArrowRight" size={20} className="ml-2" />
-            </Button>
+                
+                <div className="text-center">
+                  <div className="bg-emerald/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon name="Zap" size={32} className="text-emerald" />
+                  </div>
+                  <h4 className="font-semibold text-slate mb-2">Новинки первыми</h4>
+                  <p className="text-sm text-gray-600">Узнавай о поступлениях раньше всех</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="bg-orange/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon name="Tag" size={32} className="text-orange" />
+                  </div>
+                  <h4 className="font-semibold text-slate mb-2">Эксклюзивные скидки</h4>
+                  <p className="text-sm text-gray-600">Специальные предложения для подписчиков</p>
+                </div>
+              </div>
+              
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                  <div>
+                    <div className="text-2xl font-bold text-violet mb-1">1000+</div>
+                    <p className="text-xs text-gray-600">товаров</p>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-emerald mb-1">Ежедневно</div>
+                    <p className="text-xs text-gray-600">новинки</p>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-orange mb-1">-30%</div>
+                    <p className="text-xs text-gray-600">скидки</p>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-slate mb-1">24/7</div>
+                    <p className="text-xs text-gray-600">доступ</p>
+                  </div>
+                </div>
+              </div>
+              
+              <Button asChild size="lg" className="bg-gradient-to-r from-violet to-emerald hover:from-violet-dark hover:to-emerald-dark text-white font-montserrat font-bold px-12 py-5 text-xl rounded-xl shadow-lg hover:shadow-xl transition-all">
+                <a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer">
+                  Перейти в каталог
+                  <Icon name="ExternalLink" size={24} className="ml-3" />
+                </a>
+              </Button>
+              
+              <p className="text-sm text-gray-500 mt-4">
+                💫 Присоединяйся к 10,000+ довольных покупателей!
+              </p>
+            </Card>
           </div>
         </div>
       </section>
@@ -532,10 +576,10 @@ const Index = () => {
             <div>
               <h4 className="font-montserrat font-semibold mb-4">Каталог</h4>
               <ul className="space-y-2 text-sm text-white/60">
-                <li><a href="#" className="hover:text-white transition-colors">Женская одежда</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Мужская одежда</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Аксессуары</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Новинки</a></li>
+                <li><a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram канал</a></li>
+                <li><a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Вся одежда</a></li>
+                <li><a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Новинки</a></li>
+                <li><a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Акции</a></li>
               </ul>
             </div>
             
