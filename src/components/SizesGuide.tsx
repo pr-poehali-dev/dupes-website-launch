@@ -76,9 +76,11 @@ const SizesGuide = () => {
                 <p className="text-sm text-gray-600 mb-4">
                   Наш менеджер поможет подобрать идеальный размер
                 </p>
-                <Button className="bg-emerald hover:bg-emerald-dark text-white">
-                  <Icon name="MessageCircle" size={16} className="mr-2" />
-                  Связаться с менеджером
+                <Button asChild className="bg-emerald hover:bg-emerald-dark text-white">
+                  <a href="https://t.me/Dupes_manager" target="_blank" rel="noopener noreferrer">
+                    <Icon name="MessageCircle" size={16} className="mr-2" />
+                    Связаться с менеджером
+                  </a>
                 </Button>
               </div>
             </div>
