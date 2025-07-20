@@ -10,7 +10,7 @@ const SpecialOffers = () => {
         <h2 className="font-montserrat text-4xl font-bold text-center text-slate mb-12">
           Специальные предложения
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
 
           <Card className="p-6 bg-gradient-to-br from-emerald/10 to-emerald/5 border-emerald/20 hover:shadow-xl transition-all">
             <div className="flex items-center mb-4">
