@@ -80,9 +80,7 @@ const TelegramCatalog = () => {
               </a>
             </Button>
             
-            <p className="text-sm text-gray-500 mt-4">
-              💫 Присоединяйся к 10,000+ довольных покупателей!
-            </p>
+            <p className="text-sm text-gray-500 mt-4"></p>
           </Card>
         </div>
       </div>
