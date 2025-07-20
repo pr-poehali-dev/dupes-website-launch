@@ -11,18 +11,7 @@ const SpecialOffers = () => {
           Специальные предложения
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="p-6 bg-gradient-to-br from-violet/10 to-violet/5 border-violet/20 hover:shadow-xl transition-all">
-            <div className="flex items-center mb-4">
-              <Icon name="Gift" size={32} className="text-violet mr-3" />
-              <Badge className="bg-violet text-white">НОВИНКА</Badge>
-            </div>
-            <h3 className="font-montserrat font-bold text-xl text-slate mb-2">Скидка 20%</h3>
-            <p className="text-gray-600 mb-4">На первую покупку новым клиентам</p>
-            <Button className="w-full bg-violet hover:bg-violet-dark text-white">
-              Получить скидку
-            </Button>
-          </Card>
-          
+
           <Card className="p-6 bg-gradient-to-br from-emerald/10 to-emerald/5 border-emerald/20 hover:shadow-xl transition-all">
             <div className="flex items-center mb-4">
               <Icon name="Truck" size={32} className="text-emerald mr-3" />
