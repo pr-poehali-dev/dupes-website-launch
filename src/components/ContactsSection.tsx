@@ -67,8 +67,8 @@ const ContactsSection = () => {
               <span className="text-white/80">Гарантия качества</span>
             </div>
             <div className="flex items-center">
-              <Icon name="RotateCcw" size={24} className="text-orange mr-2" />
-              <span className="text-white/80">Возврат 7 дней</span>
+              <Icon name="Clock" size={24} className="text-orange mr-2" />
+              <span className="text-white/80">Быстрая обработка</span>
             </div>
           </div>
         </div>

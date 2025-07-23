@@ -49,8 +49,8 @@ const HeroSection = () => {
               <p className="text-gray-600 text-sm">Поддержка</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-montserrat font-bold text-slate mb-2">7 дней</div>
-              <p className="text-gray-600 text-sm">Возврат</p>
+              <div className="text-3xl md:text-4xl font-montserrat font-bold text-slate mb-2">100%</div>
+              <p className="text-gray-600 text-sm">Качество</p>
             </div>
           </div>
           

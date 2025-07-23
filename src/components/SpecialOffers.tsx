@@ -24,15 +24,22 @@ const SpecialOffers = () => {
             </Button>
           </Card>
           
-          <Card className="p-6 bg-gradient-to-br from-orange/10 to-orange/5 border-orange/20 hover:shadow-xl transition-all">
+          <Card className="p-6 bg-gradient-to-br from-violet/10 to-violet/5 border-violet/20 hover:shadow-xl transition-all">
             <div className="flex items-center mb-4">
-              <Icon name="RotateCcw" size={32} className="text-orange mr-3" />
-              <Badge className="bg-orange text-white">ГАРАНТИЯ</Badge>
+              <Icon name="Percent" size={32} className="text-violet mr-3" />
+              <Badge className="bg-violet text-white">СКИДКИ</Badge>
             </div>
-            <h3 className="font-montserrat font-bold text-xl text-slate mb-2">Возврат 7 дней</h3>
-            <p className="text-gray-600 mb-4">Не подошло? Вернём деньги без вопросов</p>
-            <Button variant="outline" className="w-full border-orange text-orange hover:bg-orange hover:text-white">
-              Условия возврата
+            <h3 className="font-montserrat font-bold text-xl text-slate mb-2">Скидки и акции</h3>
+            <p className="text-gray-600 mb-4">Все акции и скидки в нашем Telegram канале</p>
+            <Button 
+              asChild
+              variant="outline" 
+              className="w-full border-violet text-violet hover:bg-violet hover:text-white"
+            >
+              <a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer">
+                Посмотреть скидки
+                <Icon name="ExternalLink" size={16} className="ml-2" />
+              </a>
             </Button>
           </Card>
         </div>

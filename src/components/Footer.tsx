@@ -34,7 +34,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-white/60">
               <li><a href="#delivery" className="hover:text-white transition-colors">Доставка и оплата</a></li>
               <li><a href="#sizes" className="hover:text-white transition-colors">Размерная сетка</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Возврат и обмен</a></li>
+              <li><a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Скидки</a></li>
               <li><a href="#contacts" className="hover:text-white transition-colors">Контакты</a></li>
             </ul>
           </div>
