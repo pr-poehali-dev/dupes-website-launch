@@ -38,14 +38,19 @@ const ContactsSection = () => {
           
           <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center">
             <div className="bg-orange/30 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Icon name="Mail" size={40} className="text-white" />
+              <Icon name="Send" size={40} className="text-white" />
             </div>
-            <h3 className="font-montserrat font-semibold text-xl mb-4">Email</h3>
-            <p className="text-white/80 mb-6">Напишите нам на почту для консультации и оформления заказа</p>
+            <h3 className="font-montserrat font-semibold text-xl mb-4">Telegram менеджер</h3>
+            <p className="text-white/80 mb-6">Наш менеджер поможет с выбором и оформлением заказа</p>
+            <p className="text-white/60 text-sm mb-4">
+              <a href="https://t.me/Dupes_manager" target="_blank" rel="noopener noreferrer" className="hover:text-emerald transition-colors">
+                @Dupes_manager
+              </a>
+            </p>
             <Button asChild className="bg-orange hover:bg-orange-dark text-white font-semibold">
-              <a href="mailto:info@dupes.ru">
+              <a href="https://t.me/Dupes_manager" target="_blank" rel="noopener noreferrer">
                 Написать
-                <Icon name="Mail" size={16} className="ml-2" />
+                <Icon name="ExternalLink" size={16} className="ml-2" />
               </a>
             </Button>
           </Card>
