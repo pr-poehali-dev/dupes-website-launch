@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import SpecialOffers from "@/components/SpecialOffers";
+import Catalog from "@/components/Catalog";
 import TelegramCatalog from "@/components/TelegramCatalog";
 import AboutSection from "@/components/AboutSection";
 import DeliverySection from "@/components/DeliverySection";
@@ -14,6 +15,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <SpecialOffers />
+      <Catalog />
       <TelegramCatalog />
       <AboutSection />
       <DeliverySection />
