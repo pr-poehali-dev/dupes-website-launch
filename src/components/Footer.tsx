@@ -22,10 +22,10 @@ const Footer = () => {
           <div>
             <h4 className="font-montserrat font-semibold mb-4">Каталог</h4>
             <ul className="space-y-2 text-sm text-white/60">
-              <li><a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram канал</a></li>
-              <li><a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Вся одежда</a></li>
-              <li><a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Новинки</a></li>
-              <li><a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Акции</a></li>
+              <li><a href="#catalog" className="hover:text-white transition-colors">Худи</a></li>
+              <li><a href="#catalog" className="hover:text-white transition-colors">Ветровки</a></li>
+              <li><a href="#catalog" className="hover:text-white transition-colors">Футболки</a></li>
+              <li><a href="#catalog" className="hover:text-white transition-colors">Кроссовки</a></li>
             </ul>
           </div>
           
@@ -42,11 +42,11 @@ const Footer = () => {
           <div>
             <h4 className="font-montserrat font-semibold mb-4">Мы в соцсетях</h4>
             <div className="flex space-x-4">
-              <a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-emerald transition-colors">
-                <Icon name="Send" size={20} />
+              <a href="tel:+79029903444" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-emerald transition-colors">
+                <Icon name="Phone" size={20} />
               </a>
-              <a href="https://t.me/Dupes_manager" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-violet transition-colors">
-                <Icon name="MessageCircle" size={20} />
+              <a href="mailto:info@dupes.ru" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-violet transition-colors">
+                <Icon name="Mail" size={20} />
               </a>
             </div>
           </div>

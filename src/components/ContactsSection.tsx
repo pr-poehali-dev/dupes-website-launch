@@ -32,24 +32,20 @@ const ContactsSection = () => {
                 +7 (902) 990-34-44
               </a>
             </p>
-            <p className="text-white/60 text-sm mb-4">
-              <a href="https://t.me/Dupes_manager" target="_blank" rel="noopener noreferrer" className="hover:text-emerald transition-colors">
-                @Dupes_manager
-              </a>
-            </p>
+
             <p className="text-white/60 text-xs">Ответим в течение 5 минут</p>
           </Card>
           
           <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center">
             <div className="bg-orange/30 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Icon name="Send" size={40} className="text-white" />
+              <Icon name="Mail" size={40} className="text-white" />
             </div>
-            <h3 className="font-montserrat font-semibold text-xl mb-4">Telegram канал</h3>
-            <p className="text-white/80 mb-6">Следите за новинками, акциями и получайте эксклюзивные скидки</p>
+            <h3 className="font-montserrat font-semibold text-xl mb-4">Email</h3>
+            <p className="text-white/80 mb-6">Напишите нам на почту для консультации и оформления заказа</p>
             <Button asChild className="bg-orange hover:bg-orange-dark text-white font-semibold">
-              <a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer">
-                Подписаться
-                <Icon name="ExternalLink" size={16} className="ml-2" />
+              <a href="mailto:info@dupes.ru">
+                Написать
+                <Icon name="Mail" size={16} className="ml-2" />
               </a>
             </Button>
           </Card>

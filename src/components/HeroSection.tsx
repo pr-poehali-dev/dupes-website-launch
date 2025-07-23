@@ -19,17 +19,13 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button asChild size="lg" className="bg-violet hover:bg-violet-dark text-white font-montserrat font-semibold px-10 py-5 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all">
-              <a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer">
-                Смотреть каталог
-                <Icon name="ArrowRight" size={20} className="ml-2" />
-              </a>
+            <Button size="lg" className="bg-violet hover:bg-violet-dark text-white font-montserrat font-semibold px-10 py-5 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all">
+              Смотреть каталог
+              <Icon name="ArrowRight" size={20} className="ml-2" />
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-emerald text-emerald hover:bg-emerald hover:text-white font-montserrat font-semibold px-10 py-5 text-lg rounded-xl">
-              <a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer">
-                <Icon name="Send" size={20} className="mr-2" />
-                Telegram канал
-              </a>
+            <Button size="lg" variant="outline" className="border-2 border-emerald text-emerald hover:bg-emerald hover:text-white font-montserrat font-semibold px-10 py-5 text-lg rounded-xl">
+              <Icon name="Phone" size={20} className="mr-2" />
+              Связаться с нами
             </Button>
           </div>
 

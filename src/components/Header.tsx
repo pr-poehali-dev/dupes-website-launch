@@ -15,7 +15,7 @@ const Header = () => {
             />
             <div className="hidden md:flex space-x-6">
               <a href="#home" className="text-slate font-medium hover:text-violet transition-colors">Главная</a>
-              <a href="#catalog" className="text-slate font-medium hover:text-violet transition-colors">Telegram</a>
+              <a href="#catalog" className="text-slate font-medium hover:text-violet transition-colors">Каталог</a>
               <a href="#about" className="text-slate font-medium hover:text-violet transition-colors">О нас</a>
               <a href="#delivery" className="text-slate font-medium hover:text-violet transition-colors">Доставка</a>
               <a href="#contacts" className="text-slate font-medium hover:text-violet transition-colors">Контакты</a>
