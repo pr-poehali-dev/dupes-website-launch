@@ -94,6 +94,12 @@ const Catalog = () => {
               <Button 
                 variant="outline" 
                 className={`w-full ${category.buttonClass} hover:text-white`}
+                onClick={() => {
+                  const catalogSection = document.getElementById(category.id);
+                  if (catalogSection) {
+                    catalogSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 Перейти в раздел
               </Button>
