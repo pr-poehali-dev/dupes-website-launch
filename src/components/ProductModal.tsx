@@ -2,7 +2,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from '@/components/ui/icon';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from 'sonner';
 import ProductImageGallery from './product-modal/ProductImageGallery';
@@ -42,20 +42,41 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const [quantity, setQuantity] = useState<number>(1);
+  const [priceFilter, setPriceFilter] = useState<string>('');
   const { addToCart, removeFromCart, items } = useCart();
   
   const images = product.images || [product.image];
+
+  // Функция для извлечения цены из строки
+  const extractPrice = (priceStr: string): number => {
+    return parseInt(priceStr.replace(/[^\d]/g, ''));
+  };
+
+  // Фильтрация товаров по цене
+  const filteredProducts = useMemo(() => {
+    if (!priceFilter || products.length === 0) return products;
+    
+    const filterPrice = parseInt(priceFilter);
+    return products.filter(p => extractPrice(p.price) >= filterPrice);
+  }, [products, priceFilter]);
+
+  // Уникальные цены для фильтра
+  const uniquePrices = useMemo(() => {
+    if (products.length === 0) return [];
+    const prices = products.map(p => extractPrice(p.price));
+    return [...new Set(prices)].sort((a, b) => a - b);
+  }, [products]);
   
-  const currentProductIndex = products.findIndex(p => p.id === product.id);
-  const canNavigatePrev = products.length > 1 && currentProductIndex > 0;
-  const canNavigateNext = products.length > 1 && currentProductIndex < products.length - 1;
+  const currentProductIndex = filteredProducts.findIndex(p => p.id === product.id);
+  const canNavigatePrev = filteredProducts.length > 1 && currentProductIndex > 0;
+  const canNavigateNext = filteredProducts.length > 1 && currentProductIndex < filteredProducts.length - 1;
   
   const isInCart = items.some(item => item.id === product.id && item.size === selectedSize);
   const cartItem = items.find(item => item.id === product.id && item.size === selectedSize);
   
   const handlePrevProduct = () => {
     if (canNavigatePrev && onProductChange) {
-      onProductChange(products[currentProductIndex - 1]);
+      onProductChange(filteredProducts[currentProductIndex - 1]);
       setSelectedSize('');
       setSelectedImageIndex(0);
     }
@@ -63,7 +84,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
   
   const handleNextProduct = () => {
     if (canNavigateNext && onProductChange) {
-      onProductChange(products[currentProductIndex + 1]);
+      onProductChange(filteredProducts[currentProductIndex + 1]);
       setSelectedSize('');
       setSelectedImageIndex(0);
     }
@@ -111,7 +132,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   <Icon name="ChevronLeft" size={16} />
                 </Button>
                 <span className="text-sm text-gray-500">
-                  {currentProductIndex + 1} из {products.length}
+                  {currentProductIndex + 1} из {filteredProducts.length}
                 </span>
                 <Button
                   variant="outline"
@@ -126,6 +147,42 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
             )}
           </div>
         </DialogHeader>
+        
+        {/* Фильтр по цене */}
+        {products.length > 1 && uniquePrices.length > 1 && (
+          <div className="mb-6">
+            <h4 className="font-medium text-slate mb-3 flex items-center gap-2">
+              <Icon name="Filter" size={16} />
+              Фильтр по цене
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                variant={priceFilter === '' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setPriceFilter('')}
+                className="text-xs"
+              >
+                Все товары
+              </Button>
+              {uniquePrices.map(price => (
+                <Button
+                  key={price}
+                  variant={priceFilter === price.toString() ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setPriceFilter(price.toString())}
+                  className="text-xs"
+                >
+                  от {price}₽
+                </Button>
+              ))}
+            </div>
+            {priceFilter && (
+              <p className="text-sm text-gray-500 mt-2">
+                Показано {filteredProducts.length} из {products.length} товаров
+              </p>
+            )}
+          </div>
+        )}
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <ProductImageGallery
