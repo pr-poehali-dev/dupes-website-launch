@@ -204,6 +204,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ? 'Профессиональные волейбольные кроссовки Asics Gel Rocket 10. Специально разработаны для игры в зале с превосходной амортизацией и поддержкой стопы. Легкие, дышащие и невероятно комфортные для интенсивных тренировок.'
                   : product.name.includes('Gel Preleus')
                   ? 'Стильные кроссовки Asics Gel Preleus с современным дизайном в светло-бежевой расцветке. Модель сочетает в себе комфорт технологии Gel и элегантный внешний вид. Идеальны для повседневной носки и создания модных образов.'
+                  : product.name.includes('Handball Spezial')
+                  ? 'Классические кроссовки Adidas Handball Spezial в элегантном черном цвете. Легендарная модель для гандбола с замшевым верхом и знаменитыми тремя полосками. Винтажный дизайн и высокое качество делают их идеальными для повседневной носки и создания стильных образов.'
                   : product.name.includes('Asics')
                   ? 'Высокотехнологичные кроссовки Asics Gel-Kahana TR V2 для активного образа жизни. Современная модель с технологией Gel для максимального комфорта и амортизации. Прочная конструкция и стильный дизайн делают их идеальными для тренировок и повседневной носки.'
                   : product.name.includes('black')
@@ -271,6 +273,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Синтетика, сетчатые вставки'
                       : product.name.includes('Gel Preleus')
                       ? 'Синтетика, текстиль, резиновая подошва'
+                      : product.name.includes('Handball Spezial')
+                      ? 'Замша, резиновая подошва'
                       : product.name.includes('Asics')
                       ? 'Синтетика, текстиль'
                       : '100% хлопок'
@@ -293,7 +297,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       : product.name.includes('Gel Rocket 10')
                       ? 'Черный/Белый'
                       : product.name.includes('Gel Preleus')
-                      ? 'Светло-бежевый'  
+                      ? 'Светло-бежевый'
+                      : product.name.includes('Handball Spezial')
+                      ? 'Черный'  
                       : product.name.includes('Asics')
                       ? 'Серый/Белый'
                       : product.name.includes('Essentials') 
@@ -322,7 +328,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Yeezy'
                       : product.name.includes('Nike')
                       ? 'Nike'
-                      : product.name.includes('Munchen')
+                      : product.name.includes('Munchen') || product.name.includes('Handball Spezial')
                       ? 'Adidas'
                       : product.name.includes('Crocs')
                       ? 'Crocs'
@@ -358,6 +364,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Gel амортизация, дышащая сетка'
                       : product.name.includes('Munchen')
                       ? 'Винтажный дизайн, три полоски'
+                      : product.name.includes('Handball Spezial')
+                      ? 'Винтажный дизайн, замшевый верх'
                       : product.name.includes('Crocs')
                       ? 'Легкость, водостойкость'
                       : product.name.includes('Gel Rocket 10')

@@ -143,6 +143,16 @@ const Catalog = () => {
       image: "https://cdn.poehali.dev/files/12eea385-ce0a-4fa1-a87c-57ccbd8e94db.jpeg",
       isNew: true,
       discount: null
+    },
+    {
+      id: 9,
+      name: "Adidas Handball Spezial черные",
+      price: "3000₽",
+      sizes: ["41 EU — 25,5 см", "42 EU — 26,5 см", "43 EU — 27,5 см", "44 EU — 28,5 см", "45 EU — 29 см"],
+      sizeNumbers: ["41", "42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/6335a974-6636-485b-ade9-e3d6629937d1.jpeg",
+      isNew: true,
+      discount: null
     }
   ];
   
