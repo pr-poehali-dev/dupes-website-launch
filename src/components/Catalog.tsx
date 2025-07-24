@@ -133,6 +133,16 @@ const Catalog = () => {
       image: "https://cdn.poehali.dev/files/b97d1f90-959d-4730-b5b5-585c1309b646.jpeg",
       isNew: false,
       discount: null
+    },
+    {
+      id: 8,
+      name: "Кроссовки Asics Gel Preleus",
+      price: "3500₽",
+      sizes: ["42 EU — 25 см", "43 EU — 26 см", "44 EU — 27 см", "45 EU — 28 см"],
+      sizeNumbers: ["42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/12eea385-ce0a-4fa1-a87c-57ccbd8e94db.jpeg",
+      isNew: true,
+      discount: null
     }
   ];
   

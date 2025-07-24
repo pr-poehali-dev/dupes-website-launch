@@ -202,6 +202,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ? 'Классические черные Crocs - легендарная обувь для максимального комфорта. Изготовлены из запатентованного материала Croslite, который обеспечивает непревзойденную легкость и амортизацию. Идеальны для дома, дачи, пляжа и повседневной носки.'
                   : product.name.includes('Gel Rocket 10')
                   ? 'Профессиональные волейбольные кроссовки Asics Gel Rocket 10. Специально разработаны для игры в зале с превосходной амортизацией и поддержкой стопы. Легкие, дышащие и невероятно комфортные для интенсивных тренировок.'
+                  : product.name.includes('Gel Preleus')
+                  ? 'Стильные кроссовки Asics Gel Preleus с современным дизайном в светло-бежевой расцветке. Модель сочетает в себе комфорт технологии Gel и элегантный внешний вид. Идеальны для повседневной носки и создания модных образов.'
                   : product.name.includes('Asics')
                   ? 'Высокотехнологичные кроссовки Asics Gel-Kahana TR V2 для активного образа жизни. Современная модель с технологией Gel для максимального комфорта и амортизации. Прочная конструкция и стильный дизайн делают их идеальными для тренировок и повседневной носки.'
                   : product.name.includes('black')
@@ -267,6 +269,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Croslite (запатентованная пена)'
                       : product.name.includes('Gel Rocket 10')
                       ? 'Синтетика, сетчатые вставки'
+                      : product.name.includes('Gel Preleus')
+                      ? 'Синтетика, текстиль, резиновая подошва'
                       : product.name.includes('Asics')
                       ? 'Синтетика, текстиль'
                       : '100% хлопок'
@@ -287,7 +291,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       : product.name.includes('Crocs')
                       ? 'Черный'
                       : product.name.includes('Gel Rocket 10')
-                      ? 'Черный/Белый'  
+                      ? 'Черный/Белый'
+                      : product.name.includes('Gel Preleus')
+                      ? 'Светло-бежевый'  
                       : product.name.includes('Asics')
                       ? 'Серый/Белый'
                       : product.name.includes('Essentials') 
@@ -356,6 +362,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Легкость, водостойкость'
                       : product.name.includes('Gel Rocket 10')
                       ? 'Gel амортизация, поддержка стопы'
+                      : product.name.includes('Gel Preleus')
+                      ? 'Gel амортизация, современный дизайн'
                       : product.name.includes('Asics')
                       ? 'Gel амортизация'
                       : 'Chinese art design'
