@@ -265,6 +265,56 @@ const Catalog = () => {
       image: "https://cdn.poehali.dev/files/22359197-6765-4e80-a532-add85a5277ab.jpeg",
       isNew: true,
       discount: null
+    },
+    {
+      id: 17,
+      name: "Кроссовки Adidas Samba белые",
+      price: "3000₽",
+      sizes: ["41 EU — 25,5 см", "42 EU — 26,5 см", "43 EU — 27,5 см", "44 EU — 28,5 см", "45 EU — 29,5 см"],
+      sizeNumbers: ["41", "42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/2860cfb2-3c88-40f0-9dd4-69d871f8acb3.jpeg",
+      isNew: true,
+      discount: null
+    },
+    {
+      id: 18,
+      name: "Кроссовки Adidas Samba черные",
+      price: "3000₽",
+      sizes: ["42 EU — 25,5 см", "43 EU — 26,5 см", "44 EU — 27,5 см", "45 EU — 28,5 см"],
+      sizeNumbers: ["42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/8bb623f1-7722-427e-8e4a-644d8d10fe22.jpeg",
+      isNew: true,
+      discount: null
+    },
+    {
+      id: 19,
+      name: "Кроссовки Asics Gel Kahana 8 зеленые",
+      price: "3500₽",
+      sizes: ["43 EU — 25,5 см", "44 EU — 26,5 см", "45 EU — 27,5 см", "46 EU — 28,5 см", "47 EU — 29,5 см", "48 EU — 30 см", "49 EU — 31 см", "50 EU — 32 см"],
+      sizeNumbers: ["43", "44", "45", "46", "47", "48", "49", "50"],
+      image: "https://cdn.poehali.dev/files/09a8d4a9-a41f-47b2-ab29-c1200b6f5abe.jpeg",
+      isNew: true,
+      discount: null
+    },
+    {
+      id: 20,
+      name: "Кроссовки Puma 180 Reflect",
+      price: "3500₽",
+      sizes: ["41 EU — 26,5 см", "42 EU — 27,5 см", "43 EU — 28,5 см", "44 EU — 29,5 см", "45 EU — 30 см"],
+      sizeNumbers: ["41", "42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/2dd2e437-7f4c-4665-9fe0-4b7fa96743f6.jpeg",
+      isNew: true,
+      discount: null
+    },
+    {
+      id: 21,
+      name: "Кроссовки Nike Cortez белые",
+      price: "3000₽",
+      sizes: ["41 EU — 25,5 см", "42 EU — 26,5 см", "43 EU — 27,5 см", "44 EU — 28,5 см", "45 EU — 29,5 см"],
+      sizeNumbers: ["41", "42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/ab842f7d-f573-4874-b2a4-2481b84213bf.jpeg",
+      isNew: true,
+      discount: null
     }
   ];
   
