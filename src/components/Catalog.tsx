@@ -24,7 +24,14 @@ const Catalog = () => {
     price: "3100₽",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeNumbers: ["1", "2", "3", "4", "5"],
-    image: "https://cdn.poehali.dev/files/0172d86e-1da4-4342-b907-62729b281c29.jpeg",
+    image: "https://cdn.poehali.dev/files/25e93526-800f-43e4-8609-03d2fcca59f6.jpeg",
+    images: [
+      "https://cdn.poehali.dev/files/25e93526-800f-43e4-8609-03d2fcca59f6.jpeg",
+      "https://cdn.poehali.dev/files/024ac71f-86f9-4272-b7fc-aa785414b9ee.jpeg",
+      "https://cdn.poehali.dev/files/ce948d53-aa1e-4ca6-a3f9-c3b938d16cc8.jpeg",
+      "https://cdn.poehali.dev/files/354c3720-235f-4e9f-9ceb-5d6e202e8a0c.jpeg",
+      "https://cdn.poehali.dev/files/5e03854e-177b-4255-97bb-3362fc15c13b.jpeg"
+    ],
     isNew: true,
     discount: null
   };
