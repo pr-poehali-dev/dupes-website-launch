@@ -194,6 +194,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ? 'Лаконичный лонгслив из коллекции Essentials Fear Of God. Белая модель с минималистичным логотипом бренда. Высококачественный хлопок, комфортная посадка. Идеальный базовый элемент гардероба для ценителей премиальной уличной моды.'
                   : product.name.includes('Yeezy')
                   ? 'Эксклюзивный лонгслив Yeezy Bully с провокационным принтом. Белая модель с контрастным черно-белым изображением. Высококачественный хлопок, комфортная посадка. Идеальный выбор для любителей уличной моды и коллекционеров Yeezy.'
+                  : product.name.includes('Gel Kahana 8')
+                  ? 'Беговые кроссовки Asics Gel Kahana 8 в стильной бежевой расцветке. Универсальная модель с превосходной амортизацией и поддержкой для бега по различным поверхностям. Легкая конструкция и дышащие материалы обеспечивают комфорт на длинных дистанциях.'
                   : product.name.includes('Munchen')
                   ? 'Классические кроссовки Adidas Munchen в винтажном стиле. Легендарная модель из коллекции Spezial с замшевым верхом и контрастными тремя полосками. Идеально подходят для создания ретро-образов и повседневной носки.'
                   : product.name.includes('Crocs')
@@ -257,6 +259,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? '100% полиэстер'
                       : product.name.includes('Nike')
                       ? 'Натуральная кожа'
+                      : product.name.includes('Gel Kahana 8')
+                      ? 'Сетчатый материал, резиновая подошва'
                       : product.name.includes('Munchen')
                       ? 'Замша, резиновая подошва'
                       : product.name.includes('Crocs')
@@ -276,6 +280,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Черный'
                       : product.name.includes('white')
                       ? 'Белый'
+                      : product.name.includes('Gel Kahana 8')
+                      ? 'Бежевый'
                       : product.name.includes('Munchen')
                       ? 'Бордовый/Черный'
                       : product.name.includes('Crocs')
@@ -342,6 +348,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Bully graphic art'
                       : product.name.includes('Nike')
                       ? 'Air амортизация'
+                      : product.name.includes('Gel Kahana 8')
+                      ? 'Gel амортизация, дышащая сетка'
                       : product.name.includes('Munchen')
                       ? 'Винтажный дизайн, три полоски'
                       : product.name.includes('Crocs')

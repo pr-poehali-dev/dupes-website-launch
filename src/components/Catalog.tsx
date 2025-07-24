@@ -123,6 +123,16 @@ const Catalog = () => {
       image: "https://cdn.poehali.dev/files/ccb75f3b-c1e1-4f9a-9cff-9e31adf4f69e.jpeg",
       isNew: false,
       discount: null
+    },
+    {
+      id: 7,
+      name: "Кроссовки Asics Gel Kahana 8 бежевые",
+      price: "3500₽",
+      sizes: ["42 EU — 25,5 см", "43 EU — 26,5 см", "44 EU — 27,5 см", "45 EU — 28,5 см"],
+      sizeNumbers: ["42", "43", "44", "45"],
+      image: "img/94dbc664-748e-4ae4-80e4-dab2b561f114.jpg",
+      isNew: false,
+      discount: null
     }
   ];
   
