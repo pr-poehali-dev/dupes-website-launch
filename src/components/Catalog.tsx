@@ -93,6 +93,16 @@ const Catalog = () => {
       image: "https://cdn.poehali.dev/files/16edc6df-303e-4979-aabe-32125fb477a8.jpeg",
       isNew: false,
       discount: null
+    },
+    {
+      id: 4,
+      name: "Кроссовки Asics Gel Rocket 10",
+      price: "3500₽",
+      sizes: ["41 EU — 25,5 см", "42 EU — 26,5 см", "43 EU — 27,5 см", "44 EU — 28,5 см", "45 EU — 29,5 см"],
+      sizeNumbers: ["41", "42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/c2aa9f86-b695-4ef8-a41f-eed40b602650.jpeg",
+      isNew: false,
+      discount: null
     }
   ];
   
