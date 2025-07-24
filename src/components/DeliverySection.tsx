@@ -3,7 +3,7 @@ import Icon from '@/components/ui/icon';
 
 const DeliverySection = () => {
   return (
-    <section id="delivery" className="py-16 bg-gradient-to-br from-slate/5 to-gray-50">
+    <section id="delivery" data-section="delivery" className="py-16 bg-gradient-to-br from-slate/5 to-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="font-montserrat text-4xl font-bold text-center text-slate mb-12">
           Доставка и оплата

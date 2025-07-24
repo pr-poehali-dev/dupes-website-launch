@@ -14,7 +14,19 @@ const Header = () => {
               className="h-12 w-auto object-contain"
             />
             <div className="hidden md:flex space-x-6">
-              <a href="#home" className="text-slate font-medium hover:text-violet transition-colors">Главная</a>
+              <a 
+                href="#home" 
+                className="text-slate font-medium hover:text-violet transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const homeSection = document.querySelector('[data-section="home"]') || document.querySelector('body');
+                  if (homeSection) {
+                    homeSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Главная
+              </a>
               <a 
                 href="#catalog" 
                 className="text-slate font-medium hover:text-violet transition-colors"
@@ -28,10 +40,58 @@ const Header = () => {
               >
                 Каталог
               </a>
-              <a href="#about" className="text-slate font-medium hover:text-violet transition-colors">О нас</a>
-              <a href="#delivery" className="text-slate font-medium hover:text-violet transition-colors">Доставка</a>
-              <a href="#contacts" className="text-slate font-medium hover:text-violet transition-colors">Контакты</a>
-              <a href="#sizes" className="text-slate font-medium hover:text-violet transition-colors">Размеры</a>
+              <a 
+                href="#about" 
+                className="text-slate font-medium hover:text-violet transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const aboutSection = document.querySelector('[data-section="about"]');
+                  if (aboutSection) {
+                    aboutSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                О нас
+              </a>
+              <a 
+                href="#delivery" 
+                className="text-slate font-medium hover:text-violet transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const deliverySection = document.querySelector('[data-section="delivery"]');
+                  if (deliverySection) {
+                    deliverySection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Доставка
+              </a>
+              <a 
+                href="#contacts" 
+                className="text-slate font-medium hover:text-violet transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const contactsSection = document.querySelector('[data-section="contacts"]');
+                  if (contactsSection) {
+                    contactsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Контакты
+              </a>
+              <a 
+                href="#sizes" 
+                className="text-slate font-medium hover:text-violet transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const sizesSection = document.querySelector('[data-section="sizes"]');
+                  if (sizesSection) {
+                    sizesSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Размеры
+              </a>
             </div>
           </div>
           <div className="flex items-center space-x-4">

@@ -4,7 +4,7 @@ import Icon from '@/components/ui/icon';
 
 const SizesGuide = () => {
   return (
-    <section id="sizes" className="py-16 bg-white">
+    <section id="sizes" data-section="sizes" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-montserrat text-4xl font-bold text-slate mb-4">

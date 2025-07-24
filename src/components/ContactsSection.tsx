@@ -4,7 +4,7 @@ import Icon from '@/components/ui/icon';
 
 const ContactsSection = () => {
   return (
-    <section id="contacts" className="py-16 bg-slate text-white">
+    <section id="contacts" data-section="contacts" className="py-16 bg-slate text-white">
       <div className="container mx-auto px-4">
         <h2 className="font-montserrat text-4xl font-bold text-center mb-12">
           Контакты

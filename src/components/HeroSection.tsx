@@ -3,7 +3,7 @@ import Icon from '@/components/ui/icon';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative py-20 overflow-hidden">
+    <section id="home" data-section="home" className="relative py-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-violet/10 via-emerald/10 to-orange/5"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">
