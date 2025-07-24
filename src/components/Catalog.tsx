@@ -14,7 +14,6 @@ const Catalog = () => {
     sizes: ["One Size — 56-60 см"],
     sizeNumbers: ["One Size"],
     image: "https://cdn.poehali.dev/files/90b65f07-773b-48d6-84b5-e150790febc2.jpeg",
-    images: ["https://cdn.poehali.dev/files/90b65f07-773b-48d6-84b5-e150790febc2.jpeg"],
     isNew: true,
     discount: null
   };
@@ -32,18 +31,11 @@ const Catalog = () => {
 
   const windbreakerProduct = {
     id: 2,
-    name: "Ветровки Adidas",
+    name: "Ветровка Adidas Originals",
     price: "2800₽",
-    sizes: ["• S", "• M", "• L", "• XL"],
+    sizes: ["S", "M", "L", "XL"],
     sizeNumbers: ["1", "2", "3", "4"],
-    image: "https://cdn.poehali.dev/files/20fbb4e7-7666-4356-bbcd-958b550d99d0.jpeg",
-    images: [
-      "https://cdn.poehali.dev/files/20fbb4e7-7666-4356-bbcd-958b550d99d0.jpeg",
-      "https://cdn.poehali.dev/files/f0c00fe4-917a-40ec-a10b-0cb658283ecf.jpeg",
-      "https://cdn.poehali.dev/files/65f9aabf-91fd-4eed-b0af-b22cf6aff17d.jpeg",
-      "https://cdn.poehali.dev/files/147c728d-7297-464b-a2cd-443f9810e91f.jpeg",
-      "https://cdn.poehali.dev/files/8c2fdead-7618-40d8-a147-7df9cc46f7f3.jpeg"
-    ],
+    image: "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
     isNew: false,
     discount: null
   };
@@ -400,7 +392,7 @@ const Catalog = () => {
         products={
           selectedProduct.name.includes('longsleeve') || selectedProduct.name.includes('Essentials') 
             ? longsleeveProducts 
-            : (selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs') || (selectedProduct.name.includes('Adidas') && !selectedProduct.name.includes('Ветровки')) || selectedProduct.name.includes('New Balance') || selectedProduct.name.includes('Nike'))
+            : (selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs') || (selectedProduct.name.includes('Adidas') && !selectedProduct.name.includes('Ветровка')) || selectedProduct.name.includes('New Balance') || selectedProduct.name.includes('Nike'))
             ? sneakersProducts
             : [selectedProduct]
         }

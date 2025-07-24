@@ -35,13 +35,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   
-  const images = [
-    "https://cdn.poehali.dev/files/d226226b-95af-41c8-bc2e-52e384b4f231.jpeg",
-    "https://cdn.poehali.dev/files/0fe09c63-5ea6-4197-ab63-977e0fd7bc9a.jpeg", 
-    "https://cdn.poehali.dev/files/15b5a093-3ce1-4074-9f0b-2fc6efe05adf.jpeg",
-    "https://cdn.poehali.dev/files/2db1bafb-3f05-491c-9099-ad36db63e2c4.jpeg",
-    "https://cdn.poehali.dev/files/2e0feda3-800d-4b92-a294-3f873d46a6cb.jpeg"
-  ];
+  const images = product.images || [product.image];
   const currentImage = images[selectedImageIndex];
   
   const currentProductIndex = products.findIndex(p => p.id === product.id);
@@ -113,11 +107,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
           <div className="space-y-4">
             <div className="relative">
               <img 
-                src={selectedImageIndex === 0 ? "https://cdn.poehali.dev/files/d226226b-95af-41c8-bc2e-52e384b4f231.jpeg" : 
-                     selectedImageIndex === 1 ? "https://cdn.poehali.dev/files/0fe09c63-5ea6-4197-ab63-977e0fd7bc9a.jpeg" :
-                     selectedImageIndex === 2 ? "https://cdn.poehali.dev/files/15b5a093-3ce1-4074-9f0b-2fc6efe05adf.jpeg" :
-                     selectedImageIndex === 3 ? "https://cdn.poehali.dev/files/2db1bafb-3f05-491c-9099-ad36db63e2c4.jpeg" :
-                     "https://cdn.poehali.dev/files/2e0feda3-800d-4b92-a294-3f873d46a6cb.jpeg"}
+                src={currentImage} 
                 alt={product.name}
                 className="w-full h-96 lg:h-[500px] object-cover rounded-lg"
               />
@@ -196,8 +186,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
               <p className="text-gray-600 leading-relaxed">
                 {product.name.includes('Худи') 
                   ? 'Стильное худи в коллаборации Гоши Рубчинского и Kanye West с принтом "Черные псы". Выполнено из качественного хлопка с добавлением полиэстера. Удобная посадка и современный дизайн делают это худи идеальным выбором для повседневной носки.'
-                  : product.name.includes('Ветровки')
-                  ? 'Стильная черная ветровка Adidas с контрастными белыми полосками на рукавах. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
+                  : product.name.includes('Ветровка')
+                  ? 'Стильная черная ветровка Adidas Originals с контрастными белыми полосками на рукавах. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
                   : product.name.includes('Футболка')
                   ? 'Эксклюзивная футболка ERD (Enfants Riches Déprimés) с художественным принтом в китайском стиле. Высококачественный хлопок, оверсайз крой. Стильная модель для ценителей уличной моды и арт-дизайна.'
                   : product.name.includes('Essentials')
@@ -260,18 +250,21 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ))}
                 </div>
               ) : (
-                <div className="space-y-2">
+                <div className="grid grid-cols-5 gap-2">
                   {product.sizes.map((size, index) => (
                     <Button
                       key={size}
                       variant={selectedSize === size ? "default" : "outline"}
-                      className={`w-full justify-start text-sm h-auto py-2 ${selectedSize === size
-                        ? 'bg-violet hover:bg-violet/90 text-white'
-                        : 'hover:bg-gray-50'
+                      className={`${selectedSize === size 
+                        ? 'bg-violet hover:bg-violet/90 text-white' 
+                        : 'hover:border-violet hover:text-violet'
                       }`}
                       onClick={() => setSelectedSize(size)}
                     >
-                      • {size} ({product.sizeNumbers[index]})
+                      <div className="text-center">
+                        <div className="font-bold">{size}</div>
+                        <div className="text-xs opacity-70">({product.sizeNumbers[index]})</div>
+                      </div>
                     </Button>
                   ))}
                 </div>
@@ -288,7 +281,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   <span>
                     {product.name.includes('Худи') 
                       ? '80% хлопок, 20% полиэстер' 
-                      : product.name.includes('Ветровки')
+                      : product.name.includes('Ветровка')
                       ? '100% полиэстер'
                       : product.name.includes('Nike')
                       ? 'Натуральная кожа'
@@ -359,7 +352,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Белый' 
                       : product.name.includes('Футболка') 
                       ? 'Черный' 
-                      : product.name.includes('Ветровки')
+                      : product.name.includes('Ветровка')
                       ? 'Черный'
                       : 'Серый'
                     }
@@ -375,8 +368,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   <span>
                     {product.name.includes('Худи') 
                       ? 'Гоша Рубчинский х Kanye West' 
-                      : product.name.includes('Ветровки')
-                      ? 'Adidas'
+                      : product.name.includes('Ветровка')
+                      ? 'Adidas Originals'
                       : product.name.includes('Essentials')
                       ? 'Fear Of God Essentials'
                       : product.name.includes('Yeezy')
@@ -399,7 +392,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   <span>
                     {product.name.includes('Худи') 
                       ? 'Принт:' 
-                      : product.name.includes('Ветровки')
+                      : product.name.includes('Ветровка')
                       ? 'Особенности:'
                       : product.name.includes('Кроссовки') || product.name.includes('Adidas')
                       ? 'Технология:'
@@ -409,7 +402,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   <span>
                     {product.name.includes('Худи') 
                       ? 'Черные псы' 
-                      : product.name.includes('Ветровки')
+                      : product.name.includes('Ветровка')
                       ? 'Белые полоски, логотип trefoil'
                       : product.name.includes('Essentials')
                       ? 'Минималистичный логотип'
