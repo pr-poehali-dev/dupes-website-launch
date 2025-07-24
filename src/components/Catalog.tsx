@@ -42,11 +42,11 @@ const Catalog = () => {
 
   const longsleeveProduct = {
     id: 4,
-    name: "Yeezy Bully longsleeve",
+    name: "Лонгслив Essentials Fear Of God",
     price: "2900₽",
-    sizes: ["S", "M", "L"],
-    sizeNumbers: ["1", "2", "3"],
-    image: "https://cdn.poehali.dev/files/c09476b5-a7e3-4d73-8ae4-d0e86b268295.jpeg",
+    sizes: ["M", "L"],
+    sizeNumbers: ["2", "3"],
+    image: "https://cdn.poehali.dev/files/ae753281-4873-45e2-95bc-0da68de6851b.jpeg",
     isNew: false,
     discount: null
   };

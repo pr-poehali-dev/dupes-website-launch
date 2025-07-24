@@ -131,7 +131,7 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                   ? 'Классическая спортивная ветровка Adidas с белыми полосками. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
                   : product.name.includes('Футболка')
                   ? 'Эксклюзивная футболка ERD (Enfants Riches Déprimés) с художественным принтом в китайском стиле. Высококачественный хлопок, оверсайз крой. Стильная модель для ценителей уличной моды и арт-дизайна.'
-                  : 'Эксклюзивный лонгслив Yeezy Bully с провокационным принтом. Белая модель с контрастным черно-белым изображением. Высококачественный хлопок, комфортная посадка. Идеальный выбор для любителей уличной моды и коллекционеров Yeezy.'
+                  : 'Лаконичный лонгслив из коллекции Essentials Fear Of God. Белая модель с минималистичным логотипом бренда. Высококачественный хлопок, комфортная посадка. Идеальный базовый элемент гардероба для ценителей премиальной уличной моды.'
                 }
               </p>
             </div>
@@ -179,7 +179,7 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                 <div className="flex justify-between">
                   <span>Цвет:</span>
                   <span>
-                    {product.name.includes('Yeezy') 
+                    {product.name.includes('Essentials') 
                       ? 'Белый' 
                       : product.name.includes('Футболка') 
                       ? 'Черный' 
@@ -199,8 +199,8 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                       ? 'Гоша Рубчинский х Kanye West' 
                       : product.name.includes('Ветровки')
                       ? 'Adidas Originals'
-                      : product.name.includes('Yeezy')
-                      ? 'Yeezy'
+                      : product.name.includes('Essentials')
+                      ? 'Fear Of God Essentials'
                       : 'ERD (Enfants Riches Déprimés)'
                     }
                   </span>
@@ -219,8 +219,8 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                       ? 'Черные псы' 
                       : product.name.includes('Ветровки')
                       ? 'Белые полоски, логотип trefoil'
-                      : product.name.includes('Yeezy')
-                      ? 'Bully graphic art'
+                      : product.name.includes('Essentials')
+                      ? 'Минималистичный логотип'
                       : 'Chinese art design'
                     }
                   </span>
