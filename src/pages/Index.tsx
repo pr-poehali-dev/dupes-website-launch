@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import SpecialOffers from "@/components/SpecialOffers";
 import Catalog from "@/components/Catalog";
-import HoodiesSection from "@/components/HoodiesSection";
+
 import WindbreakersSection from "@/components/WindbreakersSection";
 
 import AboutSection from "@/components/AboutSection";
@@ -18,7 +18,7 @@ const Index = () => {
       <HeroSection />
       <SpecialOffers />
       <Catalog />
-      <HoodiesSection />
+
       <WindbreakersSection />
 
       <AboutSection />
