@@ -61,6 +61,12 @@ const Catalog = () => {
     sizes: ["S", "M", "L", "XL"],
     sizeNumbers: ["1", "2", "3", "4"],
     image: "https://cdn.poehali.dev/files/4f43107a-2067-42ff-8c69-1d4971646dca.jpeg",
+    images: [
+      "https://cdn.poehali.dev/files/4f43107a-2067-42ff-8c69-1d4971646dca.jpeg",
+      "https://cdn.poehali.dev/files/9054cd38-361b-439d-98b2-929029c599ed.jpeg",
+      "https://cdn.poehali.dev/files/6673ee77-a28b-4c01-ab5f-3bde9f072cb5.jpeg",
+      "https://cdn.poehali.dev/files/e7e63689-8c2d-498d-a37a-552bc038b7c6.jpeg"
+    ],
     isNew: false,
     discount: null
   };
