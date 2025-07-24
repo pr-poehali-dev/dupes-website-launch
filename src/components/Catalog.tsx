@@ -30,7 +30,10 @@ const Catalog = () => {
       "https://cdn.poehali.dev/files/024ac71f-86f9-4272-b7fc-aa785414b9ee.jpeg",
       "https://cdn.poehali.dev/files/ce948d53-aa1e-4ca6-a3f9-c3b938d16cc8.jpeg",
       "https://cdn.poehali.dev/files/354c3720-235f-4e9f-9ceb-5d6e202e8a0c.jpeg",
-      "https://cdn.poehali.dev/files/5e03854e-177b-4255-97bb-3362fc15c13b.jpeg"
+      "https://cdn.poehali.dev/files/5e03854e-177b-4255-97bb-3362fc15c13b.jpeg",
+      "https://cdn.poehali.dev/files/211696af-7017-405a-9b32-d55267bcafd1.jpeg",
+      "https://cdn.poehali.dev/files/1ed8618e-8e0a-4be9-be7b-3efa6d66ae7d.jpeg",
+      "https://cdn.poehali.dev/files/eca506c4-1b77-4d5c-8306-e771d0205b60.jpeg"
     ],
     isNew: true,
     discount: null
