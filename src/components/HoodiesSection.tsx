@@ -16,6 +16,13 @@ const HoodiesSection = () => {
       sizes: ["S", "M", "L", "XL", "XXL"],
       sizeNumbers: ["1", "2", "3", "4", "5"],
       image: "https://cdn.poehali.dev/files/9a34a520-3660-42c3-ba55-bcd4dfc369f5.jpeg",
+      images: [
+        "https://cdn.poehali.dev/files/9a34a520-3660-42c3-ba55-bcd4dfc369f5.jpeg",
+        "https://cdn.poehali.dev/files/f9d1b19a-f0b8-4c4a-9f1e-5c90a391b510.jpeg",
+        "https://cdn.poehali.dev/files/fbf15855-f426-4a8a-992f-5dfdb21c38d7.jpeg",
+        "https://cdn.poehali.dev/files/06be0d6c-a35c-4211-82ea-913bec25c6c5.jpeg",
+        "https://cdn.poehali.dev/files/f1c6deb6-4d3d-4a52-9d9e-93e0486ff28d.jpeg"
+      ],
       isNew: true,
       discount: null
     }
