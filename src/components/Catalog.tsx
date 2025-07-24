@@ -315,6 +315,16 @@ const Catalog = () => {
       image: "https://cdn.poehali.dev/files/ab842f7d-f573-4874-b2a4-2481b84213bf.jpeg",
       isNew: true,
       discount: null
+    },
+    {
+      id: 22,
+      name: "Кроссовки Nike P-6000 серые",
+      price: "3500₽",
+      sizes: ["41 EU — 25 см", "42 EU — 26 см", "43 EU — 27 см", "44 EU — 28 см", "45 EU — 29 см"],
+      sizeNumbers: ["41", "42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/652e78be-90f1-4ca8-bb42-485f8ce91649.jpeg",
+      isNew: true,
+      discount: null
     }
   ];
   
