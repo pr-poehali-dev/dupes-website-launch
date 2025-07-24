@@ -213,6 +213,16 @@ const Catalog = () => {
       image: "https://cdn.poehali.dev/files/e8f98d3a-960f-43bf-85f9-203b7db5c29e.jpeg",
       isNew: true,
       discount: null
+    },
+    {
+      id: 16,
+      name: "Кроссовки Adidas Handball Spezial серые",
+      price: "3000₽",
+      sizes: ["42 EU — 25,5 см", "43 EU — 26,5 см", "44 EU — 27,5 см", "45 EU — 28,5 см"],
+      sizeNumbers: ["42", "43", "44", "45"],
+      image: "img/ee6c397e-7733-4589-a491-5eb327e51d26.jpg",
+      isNew: true,
+      discount: null
     }
   ];
   

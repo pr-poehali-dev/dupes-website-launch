@@ -208,6 +208,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ? 'Классические кроссовки Adidas Handball Spezial в элегантном черном цвете. Легендарная модель для гандбола с замшевым верхом и знаменитыми тремя полосками. Винтажный дизайн и высокое качество делают их идеальными для повседневной носки и создания стильных образов.'
                   : product.name.includes('Handball Spezial синие')
                   ? 'Классические кроссовки Adidas Handball Spezial в стильном синем цвете. Легендарная модель для гандбола с замшевым верхом и контрастными голубыми полосками. Винтажный дизайн и премиальные материалы для создания неповторимых образов.'
+                  : product.name.includes('Handball Spezial серые')
+                  ? 'Классические кроссовки Adidas Handball Spezial в элегантном сером цвете. Легендарная модель для гандбола с замшевым верхом и белыми тремя полосками. Винтажный дизайн в нейтральной расцветке подходит к любому стилю одежды.'
                   : product.name.includes('Gel Nyc')
                   ? 'Стильные кроссовки Asics Gel Nyc в серо-зеленой расцветке. Современная модель с технологией Gel и футуристичным дизайном. Идеальное сочетание комфорта и стиля для повседневной носки и активного образа жизни.'
                   : product.name.includes('Gel Kahana 8 черные')
@@ -334,6 +336,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Серо-зеленый'
                       : product.name.includes('Handball Spezial синие')
                       ? 'Синий'
+                      : product.name.includes('Handball Spezial серые')
+                      ? 'Серый'
                       : product.name.includes('Gel Kahana 8 черные')
                       ? 'Черный'
                       : product.name.includes('New Balance 530')
