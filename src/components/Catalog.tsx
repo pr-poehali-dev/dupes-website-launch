@@ -3,163 +3,73 @@ import { Button } from "@/components/ui/button";
 import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 import ProductModal from './ProductModal';
-import CategoryPage from './CategoryPage';
 
 const Catalog = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [currentCategory, setCurrentCategory] = useState<string | null>(null);
   
-  const capProducts = [
-    {
-      id: 100,
-      name: "Кепка Diesel",
-      price: "1700₽",
-      sizes: ["One Size — 56-60 см"],
-      sizeNumbers: ["One Size"],
-      image: "https://cdn.poehali.dev/files/90b65f07-773b-48d6-84b5-e150790febc2.jpeg",
-      isNew: true,
-      discount: null
-    },
-    {
-      id: 107,
-      name: "Кепка Nike Swoosh",
-      price: "1200₽",
-      sizes: ["One Size — 54-58 см"],
-      sizeNumbers: ["One Size"],
-      image: "https://cdn.poehali.dev/files/90b65f07-773b-48d6-84b5-e150790febc2.jpeg",
-      isNew: false,
-      discount: null
-    },
-    {
-      id: 108,
-      name: "Кепка Adidas 3-Stripes",
-      price: "2000₽",
-      sizes: ["One Size — 56-60 см"],
-      sizeNumbers: ["One Size"],
-      image: "https://cdn.poehali.dev/files/90b65f07-773b-48d6-84b5-e150790febc2.jpeg",
-      isNew: true,
-      discount: null
-    }
-  ];
+  const capProduct = {
+    id: 100,
+    name: "Кепка Diesel",
+    price: "1700₽",
+    sizes: ["One Size — 56-60 см"],
+    sizeNumbers: ["One Size"],
+    image: "https://cdn.poehali.dev/files/90b65f07-773b-48d6-84b5-e150790febc2.jpeg",
+    isNew: true,
+    discount: null
+  };
 
-  const hoodieProducts = [
-    {
-      id: 1,
-      name: "Худи Гоша Рубчинский х Kanye West Черные псы",
-      price: "3100₽",
-      sizes: ["L", "XL"],
-      sizeNumbers: ["3", "4"],
-      image: "https://cdn.poehali.dev/files/25e93526-800f-43e4-8609-03d2fcca59f6.jpeg",
-      images: [
-        "https://cdn.poehali.dev/files/25e93526-800f-43e4-8609-03d2fcca59f6.jpeg",
-        "https://cdn.poehali.dev/files/024ac71f-86f9-4272-b7fc-aa785414b9ee.jpeg",
-        "https://cdn.poehali.dev/files/ce948d53-aa1e-4ca6-a3f9-c3b938d16cc8.jpeg",
-        "https://cdn.poehali.dev/files/354c3720-235f-4e9f-9ceb-5d6e202e8a0c.jpeg",
-        "https://cdn.poehali.dev/files/5e03854e-177b-4255-97bb-3362fc15c13b.jpeg"
-      ],
-      isNew: true,
-      discount: null
-    },
-    {
-      id: 101,
-      name: "Худи Nike Sportswear",
-      price: "2800₽",
-      sizes: ["S", "M", "L", "XL"],
-      sizeNumbers: ["1", "2", "3", "4"],
-      image: "https://cdn.poehali.dev/files/ae753281-4873-45e2-95bc-0da68de6851b.jpeg",
-      isNew: false,
-      discount: null
-    },
-    {
-      id: 102,
-      name: "Худи Adidas Originals",
-      price: "3500₽",
-      sizes: ["M", "L", "XL"],
-      sizeNumbers: ["2", "3", "4"],
-      image: "https://cdn.poehali.dev/files/30e6359e-a68f-4375-9064-0ceaf6f2886e.jpeg",
-      isNew: true,
-      discount: null
-    }
-  ];
+  const hoodieProduct = {
+    id: 1,
+    name: "Худи Гоша Рубчинский х Kanye West Черные псы",
+    price: "3100₽",
+    sizes: ["L", "XL"],
+    sizeNumbers: ["3", "4"],
+    image: "https://cdn.poehali.dev/files/25e93526-800f-43e4-8609-03d2fcca59f6.jpeg",
+    images: [
+      "https://cdn.poehali.dev/files/25e93526-800f-43e4-8609-03d2fcca59f6.jpeg",
+      "https://cdn.poehali.dev/files/024ac71f-86f9-4272-b7fc-aa785414b9ee.jpeg",
+      "https://cdn.poehali.dev/files/ce948d53-aa1e-4ca6-a3f9-c3b938d16cc8.jpeg",
+      "https://cdn.poehali.dev/files/354c3720-235f-4e9f-9ceb-5d6e202e8a0c.jpeg",
+      "https://cdn.poehali.dev/files/5e03854e-177b-4255-97bb-3362fc15c13b.jpeg"
+    ],
+    isNew: true,
+    discount: null
+  };
 
-  const windbreakerProducts = [
-    {
-      id: 2,
-      name: "Ветровка Adidas Originals",
-      price: "2800₽",
-      sizes: ["S", "M", "L", "XL", "XXL", "2XL"],
-      sizeNumbers: ["1", "2", "3", "4", "5", "6"],
-      image: "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
-      images: [
-        "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
-        "https://cdn.poehali.dev/files/5a3fab8b-1d3c-4bb6-bcf4-755347427efb.jpeg",
-        "https://cdn.poehali.dev/files/dd062a81-04c5-4e2d-b916-02591f8c0008.jpeg",
-        "https://cdn.poehali.dev/files/c9e22ebe-b419-4e48-8cb2-ac30209fa482.jpeg",
-        "https://cdn.poehali.dev/files/786429c0-6cb4-4b9c-ae20-6eabc832df00.jpeg"
-      ],
-      isNew: false,
-      discount: null
-    },
-    {
-      id: 103,
-      name: "Ветровка Nike Windrunner",
-      price: "3200₽",
-      sizes: ["S", "M", "L", "XL"],
-      sizeNumbers: ["1", "2", "3", "4"],
-      image: "https://cdn.poehali.dev/files/5a3fab8b-1d3c-4bb6-bcf4-755347427efb.jpeg",
-      isNew: true,
-      discount: null
-    },
-    {
-      id: 104,
-      name: "Ветровка Puma Essentials",
-      price: "2500₽",
-      sizes: ["M", "L", "XL"],
-      sizeNumbers: ["2", "3", "4"],
-      image: "https://cdn.poehali.dev/files/dd062a81-04c5-4e2d-b916-02591f8c0008.jpeg",
-      isNew: false,
-      discount: null
-    }
-  ];
+  const windbreakerProduct = {
+    id: 2,
+    name: "Ветровка Adidas Originals",
+    price: "2800₽",
+    sizes: ["S", "M", "L", "XL", "XXL", "2XL"],
+    sizeNumbers: ["1", "2", "3", "4", "5", "6"],
+    image: "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
+    images: [
+      "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
+      "https://cdn.poehali.dev/files/5a3fab8b-1d3c-4bb6-bcf4-755347427efb.jpeg",
+      "https://cdn.poehali.dev/files/dd062a81-04c5-4e2d-b916-02591f8c0008.jpeg",
+      "https://cdn.poehali.dev/files/c9e22ebe-b419-4e48-8cb2-ac30209fa482.jpeg",
+      "https://cdn.poehali.dev/files/786429c0-6cb4-4b9c-ae20-6eabc832df00.jpeg"
+    ],
+    isNew: false,
+    discount: null
+  };
 
-  const tshirtProducts = [
-    {
-      id: 3,
-      name: "Футболка ERD Chinese enfants riches deprimes",
-      price: "2200₽",
-      sizes: ["M", "L"],
-      sizeNumbers: ["2", "3"],
-      image: "https://cdn.poehali.dev/files/4f43107a-2067-42ff-8c69-1d4971646dca.jpeg",
-      images: [
-        "https://cdn.poehali.dev/files/4f43107a-2067-42ff-8c69-1d4971646dca.jpeg",
-        "https://cdn.poehali.dev/files/9054cd38-361b-439d-98b2-929029c599ed.jpeg",
-        "https://cdn.poehali.dev/files/6673ee77-a28b-4c01-ab5f-3bde9f072cb5.jpeg",
-        "https://cdn.poehali.dev/files/e7e63689-8c2d-498d-a37a-552bc038b7c6.jpeg"
-      ],
-      isNew: false,
-      discount: null
-    },
-    {
-      id: 105,
-      name: "Футболка Nike Dri-FIT",
-      price: "1800₽",
-      sizes: ["S", "M", "L", "XL"],
-      sizeNumbers: ["1", "2", "3", "4"],
-      image: "https://cdn.poehali.dev/files/9054cd38-361b-439d-98b2-929029c599ed.jpeg",
-      isNew: false,
-      discount: null
-    },
-    {
-      id: 106,
-      name: "Футболка Adidas Trefoil",
-      price: "2500₽",
-      sizes: ["S", "M", "L"],
-      sizeNumbers: ["1", "2", "3"],
-      image: "https://cdn.poehali.dev/files/6673ee77-a28b-4c01-ab5f-3bde9f072cb5.jpeg",
-      isNew: true,
-      discount: null
-    }
-  ];
+  const tshirtProduct = {
+    id: 3,
+    name: "Футболка ERD Chinese enfants riches deprimes",
+    price: "2200₽",
+    sizes: ["M", "L"],
+    sizeNumbers: ["2", "3"],
+    image: "https://cdn.poehali.dev/files/4f43107a-2067-42ff-8c69-1d4971646dca.jpeg",
+    images: [
+      "https://cdn.poehali.dev/files/4f43107a-2067-42ff-8c69-1d4971646dca.jpeg",
+      "https://cdn.poehali.dev/files/9054cd38-361b-439d-98b2-929029c599ed.jpeg",
+      "https://cdn.poehali.dev/files/6673ee77-a28b-4c01-ab5f-3bde9f072cb5.jpeg",
+      "https://cdn.poehali.dev/files/e7e63689-8c2d-498d-a37a-552bc038b7c6.jpeg"
+    ],
+    isNew: false,
+    discount: null
+  };
 
   const longsleeveProducts = [
     {
@@ -418,33 +328,28 @@ const Catalog = () => {
     }
   ];
   
-
-
-  const openCategoryPage = (categoryId: string) => {
-    setCurrentCategory(categoryId);
+  const openHoodieModal = () => {
+    setSelectedProduct(hoodieProduct);
   };
 
-  const closeCategoryPage = () => {
-    setCurrentCategory(null);
+  const openWindbreakerModal = () => {
+    setSelectedProduct(windbreakerProduct);
   };
 
-  const getCategoryData = (categoryId: string) => {
-    switch (categoryId) {
-      case 'hoodies':
-        return { title: 'Худи', products: hoodieProducts };
-      case 'windbreakers':
-        return { title: 'Ветровки', products: windbreakerProducts };
-      case 'tshirts':
-        return { title: 'Футболки', products: tshirtProducts };
-      case 'longsleeves':
-        return { title: 'Лонгсливы', products: longsleeveProducts };
-      case 'sneakers':
-        return { title: 'Кроссовки', products: sneakersProducts };
-      case 'caps':
-        return { title: 'Кепки', products: capProducts };
-      default:
-        return { title: '', products: [] };
-    }
+  const openTshirtModal = () => {
+    setSelectedProduct(tshirtProduct);
+  };
+
+  const openLongsleeveModal = () => {
+    setSelectedProduct(longsleeveProducts[0]);
+  };
+
+  const openSneakersModal = () => {
+    setSelectedProduct(sneakersProducts[0]);
+  };
+
+  const openCapModal = () => {
+    setSelectedProduct(capProduct);
   };
   
   const closeProductModal = () => {
@@ -513,17 +418,6 @@ const Catalog = () => {
     }
   ];
 
-  if (currentCategory) {
-    const categoryData = getCategoryData(currentCategory);
-    return (
-      <CategoryPage
-        title={categoryData.title}
-        products={categoryData.products}
-        onBack={closeCategoryPage}
-      />
-    );
-  }
-
   return (
     <>
     <section id="catalog" className="py-16 bg-gray-50" data-section="catalog">
@@ -553,7 +447,26 @@ const Catalog = () => {
               <Button 
                 variant="outline" 
                 className={`w-full ${category.buttonClass} hover:text-white`}
-onClick={() => openCategoryPage(category.id)}
+                onClick={() => {
+                  if (category.id === 'hoodies') {
+                    openHoodieModal();
+                  } else if (category.id === 'windbreakers') {
+                    openWindbreakerModal();
+                  } else if (category.id === 'tshirts') {
+                    openTshirtModal();
+                  } else if (category.id === 'longsleeves') {
+                    openLongsleeveModal();
+                  } else if (category.id === 'sneakers') {
+                    openSneakersModal();
+                  } else if (category.id === 'caps') {
+                    openCapModal();
+                  } else {
+                    const catalogSection = document.getElementById(category.id);
+                    if (catalogSection) {
+                      catalogSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
+                }}
               >
                 Перейти в раздел
               </Button>
@@ -567,7 +480,13 @@ onClick={() => openCategoryPage(category.id)}
       <ProductModal 
         product={selectedProduct} 
         onClose={closeProductModal}
-products={[selectedProduct]}
+        products={
+          selectedProduct.name.includes('longsleeve') || selectedProduct.name.includes('Essentials') 
+            ? longsleeveProducts 
+            : (selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs') || (selectedProduct.name.includes('Adidas') && !selectedProduct.name.includes('Ветровка')) || selectedProduct.name.includes('New Balance') || selectedProduct.name.includes('Nike'))
+            ? sneakersProducts
+            : [selectedProduct]
+        }
         onProductChange={setSelectedProduct}
       />
     )}
