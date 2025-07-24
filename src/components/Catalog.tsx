@@ -17,9 +17,24 @@ const Catalog = () => {
     isNew: true,
     discount: null
   };
+
+  const windbreakerProduct = {
+    id: 2,
+    name: "Ветровки Adidas",
+    price: "2800₽",
+    sizes: ["S", "M", "L", "XL"],
+    sizeNumbers: ["1", "2", "3", "4"],
+    image: "https://cdn.poehali.dev/files/3255da10-b129-4257-931c-aeeed12f399e.jpeg",
+    isNew: false,
+    discount: null
+  };
   
   const openHoodieModal = () => {
     setSelectedProduct(hoodieProduct);
+  };
+
+  const openWindbreakerModal = () => {
+    setSelectedProduct(windbreakerProduct);
   };
   
   const closeProductModal = () => {
@@ -120,6 +135,8 @@ const Catalog = () => {
                 onClick={() => {
                   if (category.id === 'hoodies') {
                     openHoodieModal();
+                  } else if (category.id === 'windbreakers') {
+                    openWindbreakerModal();
                   } else {
                     const catalogSection = document.getElementById(category.id);
                     if (catalogSection) {

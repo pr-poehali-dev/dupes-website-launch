@@ -125,9 +125,10 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                 Описание товара
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                Стильное худи в коллаборации Гоши Рубчинского и Kanye West с принтом "Черные псы". 
-                Выполнено из качественного хлопка с добавлением полиэстера. 
-                Удобная посадка и современный дизайн делают это худи идеальным выбором для повседневной носки.
+                {product.name.includes('Худи') 
+                  ? 'Стильное худи в коллаборации Гоши Рубчинского и Kanye West с принтом "Черные псы". Выполнено из качественного хлопка с добавлением полиэстера. Удобная посадка и современный дизайн делают это худи идеальным выбором для повседневной носки.'
+                  : 'Классическая спортивная ветровка Adidas с белыми полосками. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
+                }
               </p>
             </div>
 
@@ -162,19 +163,19 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex justify-between">
                   <span>Материал:</span>
-                  <span>80% хлопок, 20% полиэстер</span>
+                  <span>{product.name.includes('Худи') ? '80% хлопок, 20% полиэстер' : '100% полиэстер'}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Цвет:</span>
                   <span>Серый</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Коллекция:</span>
-                  <span>Гоша Рубчинский х Kanye West</span>
+                  <span>{product.name.includes('Худи') ? 'Коллекция:' : 'Бренд:'}</span>
+                  <span>{product.name.includes('Худи') ? 'Гоша Рубчинский х Kanye West' : 'Adidas Originals'}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Принт:</span>
-                  <span>Черные псы</span>
+                  <span>{product.name.includes('Худи') ? 'Принт:' : 'Особенности:'}</span>
+                  <span>{product.name.includes('Худи') ? 'Черные псы' : 'Белые полоски, логотип trefoil'}</span>
                 </div>
               </div>
             </div>
