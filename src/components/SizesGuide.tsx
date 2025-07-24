@@ -138,8 +138,8 @@ const SizesGuide = () => {
                   Наш менеджер поможет подобрать идеальный размер
                 </p>
                 <Button asChild className="bg-emerald hover:bg-emerald-dark text-white">
-                  <a href="https://t.me/Dupes_manager" target="_blank" rel="noopener noreferrer">
-                    <Icon name="MessageCircle" size={16} className="mr-2" />
+                  <a href="tel:+79029903444">
+                    <Icon name="Phone" size={16} className="mr-2" />
                     Связаться с менеджером
                   </a>
                 </Button>
