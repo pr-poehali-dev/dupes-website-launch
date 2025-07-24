@@ -250,21 +250,19 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ))}
                 </div>
               ) : (
-                <div className="grid grid-cols-5 gap-2">
+                <div className="space-y-2">
                   {product.sizes.map((size, index) => (
                     <Button
                       key={size}
                       variant={selectedSize === size ? "default" : "outline"}
-                      className={`${selectedSize === size 
+                      className={`w-full justify-between text-sm h-auto py-3 ${selectedSize === size 
                         ? 'bg-violet hover:bg-violet/90 text-white' 
                         : 'hover:border-violet hover:text-violet'
                       }`}
                       onClick={() => setSelectedSize(size)}
                     >
-                      <div className="text-center">
-                        <div className="font-bold">{size}</div>
-                        <div className="text-xs opacity-70">({product.sizeNumbers[index]})</div>
-                      </div>
+                      <span className="font-bold">{size}</span>
+                      <span className="text-xs opacity-70">({product.sizeNumbers[index]})</span>
                     </Button>
                   ))}
                 </div>
