@@ -79,7 +79,8 @@ export const products: Product[] = [
       { size: "M", count: 2 },
       { size: "L", count: 4 },
       { size: "XL", count: 2 },
-      { size: "XXL", count: 1 }
+      { size: "XXL", count: 1 },
+      { size: "2XL", count: 1 }
     ],
     specifications: {
       material: "100% полиэстер",

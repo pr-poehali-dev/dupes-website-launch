@@ -40,8 +40,8 @@ const Catalog = () => {
     id: 2,
     name: "Ветровка Adidas Originals",
     price: "2800₽",
-    sizes: ["L", "XL", "XXL"],
-    sizeNumbers: ["3", "4", "5"],
+    sizes: ["S", "M", "L", "XL", "XXL", "2XL"],
+    sizeNumbers: ["1", "2", "3", "4", "5", "6"],
     image: "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
     images: [
       "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
@@ -76,8 +76,8 @@ const Catalog = () => {
       id: 4,
       name: "Лонгслив Essentials Fear Of God",
       price: "2900₽",
-      sizes: ["S"],
-      sizeNumbers: ["1"],
+      sizes: ["M", "L"],
+      sizeNumbers: ["2", "3"],
       image: "https://cdn.poehali.dev/files/ae753281-4873-45e2-95bc-0da68de6851b.jpeg",
       images: [
         "https://cdn.poehali.dev/files/ae753281-4873-45e2-95bc-0da68de6851b.jpeg",
@@ -92,8 +92,8 @@ const Catalog = () => {
       id: 5,
       name: "Yeezy Bully longsleeve",
       price: "2900₽",
-      sizes: ["S", "M", "L"],
-      sizeNumbers: ["1", "2", "3"],
+      sizes: ["S"],
+      sizeNumbers: ["1"],
       image: "https://cdn.poehali.dev/files/f40ea812-995a-46d2-887b-acd99d98cffc.jpeg",
       images: [
         "https://cdn.poehali.dev/files/f40ea812-995a-46d2-887b-acd99d98cffc.jpeg",
