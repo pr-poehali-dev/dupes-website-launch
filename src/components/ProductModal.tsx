@@ -186,8 +186,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
               <p className="text-gray-600 leading-relaxed">
                 {product.name.includes('Худи') 
                   ? 'Стильное худи в коллаборации Гоши Рубчинского и Kanye West с принтом "Черные псы". Выполнено из качественного хлопка с добавлением полиэстера. Удобная посадка и современный дизайн делают это худи идеальным выбором для повседневной носки.'
-                  : product.name.includes('Ветровки')
-                  ? 'Классическая спортивная ветровка Adidas с белыми полосками. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
+                  : product.name.includes('Ветровка')
+                  ? 'Классическая спортивная ветровка Adidas Originals с белыми полосками. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
                   : product.name.includes('Футболка')
                   ? 'Эксклюзивная футболка ERD (Enfants Riches Déprimés) с художественным принтом в китайском стиле. Высококачественный хлопок, оверсайз крой. Стильная модель для ценителей уличной моды и арт-дизайна.'
                   : product.name.includes('Essentials')
@@ -281,7 +281,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   <span>
                     {product.name.includes('Худи') 
                       ? '80% хлопок, 20% полиэстер' 
-                      : product.name.includes('Ветровки')
+                      : product.name.includes('Ветровка')
                       ? '100% полиэстер'
                       : product.name.includes('Nike')
                       ? 'Натуральная кожа'
@@ -352,6 +352,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Белый' 
                       : product.name.includes('Футболка') 
                       ? 'Черный' 
+                      : product.name.includes('Ветровка')
+                      ? 'Серый'
                       : 'Серый'
                     }
                   </span>

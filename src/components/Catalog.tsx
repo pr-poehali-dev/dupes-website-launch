@@ -31,11 +31,11 @@ const Catalog = () => {
 
   const windbreakerProduct = {
     id: 2,
-    name: "Ветровки Adidas",
+    name: "Ветровка Adidas Originals",
     price: "2800₽",
     sizes: ["S", "M", "L", "XL"],
     sizeNumbers: ["1", "2", "3", "4"],
-    image: "https://cdn.poehali.dev/files/3255da10-b129-4257-931c-aeeed12f399e.jpeg",
+    image: "img/ab29ee8d-b657-4794-8054-67add735352c.jpg",
     isNew: false,
     discount: null
   };
