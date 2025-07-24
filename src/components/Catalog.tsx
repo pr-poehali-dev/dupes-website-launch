@@ -4,7 +4,11 @@ import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 import ProductModal from './ProductModal';
 
-const Catalog = () => {
+interface CatalogProps {
+  onGoToCaps?: () => void;
+}
+
+const Catalog = ({ onGoToCaps }: CatalogProps) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   
   const hoodieProduct = {
@@ -352,6 +356,8 @@ const Catalog = () => {
                     openLongsleeveModal();
                   } else if (category.id === 'sneakers') {
                     openSneakersModal();
+                  } else if (category.id === 'caps' && onGoToCaps) {
+                    onGoToCaps();
                   } else {
                     const catalogSection = document.getElementById(category.id);
                     if (catalogSection) {
