@@ -392,7 +392,7 @@ const Catalog = () => {
         products={
           selectedProduct.name.includes('longsleeve') || selectedProduct.name.includes('Essentials') 
             ? longsleeveProducts 
-            : selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs') || selectedProduct.name.includes('Adidas') || selectedProduct.name.includes('New Balance') || selectedProduct.name.includes('Nike')
+            : (selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs') || (selectedProduct.name.includes('Adidas') && !selectedProduct.name.includes('Ветровка')) || selectedProduct.name.includes('New Balance') || selectedProduct.name.includes('Nike'))
             ? sneakersProducts
             : [selectedProduct]
         }

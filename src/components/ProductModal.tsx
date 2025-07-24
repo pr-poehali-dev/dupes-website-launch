@@ -368,7 +368,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   <span>
                     {product.name.includes('Худи') 
                       ? 'Гоша Рубчинский х Kanye West' 
-                      : product.name.includes('Ветровки')
+                      : product.name.includes('Ветровка')
                       ? 'Adidas Originals'
                       : product.name.includes('Essentials')
                       ? 'Fear Of God Essentials'
@@ -392,7 +392,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   <span>
                     {product.name.includes('Худи') 
                       ? 'Принт:' 
-                      : product.name.includes('Ветровки')
+                      : product.name.includes('Ветровка')
                       ? 'Особенности:'
                       : product.name.includes('Кроссовки') || product.name.includes('Adidas')
                       ? 'Технология:'
@@ -402,7 +402,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   <span>
                     {product.name.includes('Худи') 
                       ? 'Черные псы' 
-                      : product.name.includes('Ветровки')
+                      : product.name.includes('Ветровка')
                       ? 'Белые полоски, логотип trefoil'
                       : product.name.includes('Essentials')
                       ? 'Минималистичный логотип'
