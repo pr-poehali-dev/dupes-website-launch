@@ -39,6 +39,17 @@ const Catalog = () => {
     isNew: false,
     discount: null
   };
+
+  const longsleeveProduct = {
+    id: 4,
+    name: "Yeezy Bully longsleeve",
+    price: "2900₽",
+    sizes: ["S", "M", "L"],
+    sizeNumbers: ["1", "2", "3"],
+    image: "https://cdn.poehali.dev/files/c09476b5-a7e3-4d73-8ae4-d0e86b268295.jpeg",
+    isNew: false,
+    discount: null
+  };
   
   const openHoodieModal = () => {
     setSelectedProduct(hoodieProduct);
@@ -50,6 +61,10 @@ const Catalog = () => {
 
   const openTshirtModal = () => {
     setSelectedProduct(tshirtProduct);
+  };
+
+  const openLongsleeveModal = () => {
+    setSelectedProduct(longsleeveProduct);
   };
   
   const closeProductModal = () => {
@@ -154,6 +169,8 @@ const Catalog = () => {
                     openWindbreakerModal();
                   } else if (category.id === 'tshirts') {
                     openTshirtModal();
+                  } else if (category.id === 'longsleeves') {
+                    openLongsleeveModal();
                   } else {
                     const catalogSection = document.getElementById(category.id);
                     if (catalogSection) {

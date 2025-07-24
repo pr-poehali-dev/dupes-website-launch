@@ -129,7 +129,9 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                   ? 'Стильное худи в коллаборации Гоши Рубчинского и Kanye West с принтом "Черные псы". Выполнено из качественного хлопка с добавлением полиэстера. Удобная посадка и современный дизайн делают это худи идеальным выбором для повседневной носки.'
                   : product.name.includes('Ветровки')
                   ? 'Классическая спортивная ветровка Adidas с белыми полосками. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
-                  : 'Эксклюзивная футболка ERD (Enfants Riches Déprimés) с художественным принтом в китайском стиле. Высококачественный хлопок, оверсайз крой. Стильная модель для ценителей уличной моды и арт-дизайна.'
+                  : product.name.includes('Футболка')
+                  ? 'Эксклюзивная футболка ERD (Enfants Riches Déprimés) с художественным принтом в китайском стиле. Высококачественный хлопок, оверсайз крой. Стильная модель для ценителей уличной моды и арт-дизайна.'
+                  : 'Эксклюзивный лонгслив Yeezy Bully с провокационным принтом. Белая модель с контрастным черно-белым изображением. Высококачественный хлопок, комфортная посадка. Идеальный выбор для любителей уличной моды и коллекционеров Yeezy.'
                 }
               </p>
             </div>
@@ -176,14 +178,19 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                 </div>
                 <div className="flex justify-between">
                   <span>Цвет:</span>
-                  <span>{product.name.includes('Футболка') ? 'Черный' : 'Серый'}</span>
+                  <span>
+                    {product.name.includes('Yeezy') 
+                      ? 'Белый' 
+                      : product.name.includes('Футболка') 
+                      ? 'Черный' 
+                      : 'Серый'
+                    }
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>
                     {product.name.includes('Худи') 
                       ? 'Коллекция:' 
-                      : product.name.includes('Ветровки')
-                      ? 'Бренд:'
                       : 'Бренд:'
                     }
                   </span>
@@ -192,6 +199,8 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                       ? 'Гоша Рубчинский х Kanye West' 
                       : product.name.includes('Ветровки')
                       ? 'Adidas Originals'
+                      : product.name.includes('Yeezy')
+                      ? 'Yeezy'
                       : 'ERD (Enfants Riches Déprimés)'
                     }
                   </span>
@@ -210,6 +219,8 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                       ? 'Черные псы' 
                       : product.name.includes('Ветровки')
                       ? 'Белые полоски, логотип trefoil'
+                      : product.name.includes('Yeezy')
+                      ? 'Bully graphic art'
                       : 'Chinese art design'
                     }
                   </span>
