@@ -22,8 +22,8 @@ const Catalog = () => {
     id: 1,
     name: "Худи Гоша Рубчинский х Kanye West Черные псы",
     price: "3100₽",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    sizeNumbers: ["1", "2", "3", "4", "5"],
+    sizes: ["L", "XL"],
+    sizeNumbers: ["3", "4"],
     image: "https://cdn.poehali.dev/files/25e93526-800f-43e4-8609-03d2fcca59f6.jpeg",
     images: [
       "https://cdn.poehali.dev/files/25e93526-800f-43e4-8609-03d2fcca59f6.jpeg",
@@ -40,8 +40,8 @@ const Catalog = () => {
     id: 2,
     name: "Ветровка Adidas Originals",
     price: "2800₽",
-    sizes: ["S", "M", "L", "XL"],
-    sizeNumbers: ["1", "2", "3", "4"],
+    sizes: ["L", "XL", "XXL"],
+    sizeNumbers: ["3", "4", "5"],
     image: "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
     images: [
       "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
@@ -58,8 +58,8 @@ const Catalog = () => {
     id: 3,
     name: "Футболка ERD Chinese enfants riches deprimes",
     price: "2200₽",
-    sizes: ["S", "M", "L", "XL"],
-    sizeNumbers: ["1", "2", "3", "4"],
+    sizes: ["M", "L"],
+    sizeNumbers: ["2", "3"],
     image: "https://cdn.poehali.dev/files/4f43107a-2067-42ff-8c69-1d4971646dca.jpeg",
     images: [
       "https://cdn.poehali.dev/files/4f43107a-2067-42ff-8c69-1d4971646dca.jpeg",
@@ -76,8 +76,8 @@ const Catalog = () => {
       id: 4,
       name: "Лонгслив Essentials Fear Of God",
       price: "2900₽",
-      sizes: ["M", "L"],
-      sizeNumbers: ["2", "3"],
+      sizes: ["S"],
+      sizeNumbers: ["1"],
       image: "https://cdn.poehali.dev/files/ae753281-4873-45e2-95bc-0da68de6851b.jpeg",
       images: [
         "https://cdn.poehali.dev/files/ae753281-4873-45e2-95bc-0da68de6851b.jpeg",
