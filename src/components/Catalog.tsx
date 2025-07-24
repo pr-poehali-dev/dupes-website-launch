@@ -35,7 +35,7 @@ const Catalog = () => {
     price: "2800₽",
     sizes: ["S", "M", "L", "XL"],
     sizeNumbers: ["1", "2", "3", "4"],
-    image: "img/ab29ee8d-b657-4794-8054-67add735352c.jpg",
+    image: "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
     isNew: false,
     discount: null
   };
