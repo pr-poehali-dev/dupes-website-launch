@@ -1,8 +1,30 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Icon from '@/components/ui/icon';
+import { useState } from 'react';
+import ProductModal from './ProductModal';
 
 const Catalog = () => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  
+  const hoodieProduct = {
+    id: 1,
+    name: "Худи Гоша Рубчинский х Kanye West Черные псы",
+    price: "3100₽",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizeNumbers: ["1", "2", "3", "4", "5"],
+    image: "https://cdn.poehali.dev/files/0172d86e-1da4-4342-b907-62729b281c29.jpeg",
+    isNew: true,
+    discount: null
+  };
+  
+  const openHoodieModal = () => {
+    setSelectedProduct(hoodieProduct);
+  };
+  
+  const closeProductModal = () => {
+    setSelectedProduct(null);
+  };
   const categories = [
     {
       id: 'hoodies',
@@ -67,7 +89,8 @@ const Catalog = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <>
+    <section className="py-16 bg-gray-50" data-section="catalog">
       <div className="container mx-auto px-4">
         <h2 className="font-montserrat text-4xl font-bold text-center text-slate mb-12">
           Каталог товаров
@@ -95,9 +118,13 @@ const Catalog = () => {
                 variant="outline" 
                 className={`w-full ${category.buttonClass} hover:text-white`}
                 onClick={() => {
-                  const catalogSection = document.getElementById(category.id);
-                  if (catalogSection) {
-                    catalogSection.scrollIntoView({ behavior: 'smooth' });
+                  if (category.id === 'hoodies') {
+                    openHoodieModal();
+                  } else {
+                    const catalogSection = document.getElementById(category.id);
+                    if (catalogSection) {
+                      catalogSection.scrollIntoView({ behavior: 'smooth' });
+                    }
                   }
                 }}
               >
@@ -108,6 +135,14 @@ const Catalog = () => {
         </div>
       </div>
     </section>
+    
+    {selectedProduct && (
+      <ProductModal 
+        product={selectedProduct} 
+        onClose={closeProductModal} 
+      />
+    )}
+    </>
   );
 };
 
