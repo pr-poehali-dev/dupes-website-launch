@@ -204,10 +204,20 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ? 'Профессиональные волейбольные кроссовки Asics Gel Rocket 10. Специально разработаны для игры в зале с превосходной амортизацией и поддержкой стопы. Легкие, дышащие и невероятно комфортные для интенсивных тренировок.'
                   : product.name.includes('Gel Preleus')
                   ? 'Стильные кроссовки Asics Gel Preleus с современным дизайном в светло-бежевой расцветке. Модель сочетает в себе комфорт технологии Gel и элегантный внешний вид. Идеальны для повседневной носки и создания модных образов.'
-                  : product.name.includes('Handball Spezial')
+                  : product.name.includes('Handball Spezial черные')
                   ? 'Классические кроссовки Adidas Handball Spezial в элегантном черном цвете. Легендарная модель для гандбола с замшевым верхом и знаменитыми тремя полосками. Винтажный дизайн и высокое качество делают их идеальными для повседневной носки и создания стильных образов.'
+                  : product.name.includes('Handball Spezial синие')
+                  ? 'Классические кроссовки Adidas Handball Spezial в стильном синем цвете. Легендарная модель для гандбола с замшевым верхом и контрастными голубыми полосками. Винтажный дизайн и премиальные материалы для создания неповторимых образов.'
                   : product.name.includes('Gel Nyc')
                   ? 'Стильные кроссовки Asics Gel Nyc в серо-зеленой расцветке. Современная модель с технологией Gel и футуристичным дизайном. Идеальное сочетание комфорта и стиля для повседневной носки и активного образа жизни.'
+                  : product.name.includes('Gel Kahana 8 черные')
+                  ? 'Беговые кроссовки Asics Gel Kahana 8 в стильной черной расцветке. Универсальная модель с превосходной амортизацией и поддержкой для бега по различным поверхностям. Прочная конструкция и дышащие материалы для максимального комфорта.'
+                  : product.name.includes('New Balance 530')
+                  ? 'Стильные кроссовки New Balance 530 в классическом белом цвете. Ретро-дизайн с современными технологиями. Идеально подходят для повседневной носки и создания спортивных образов.'
+                  : product.name.includes('Nike P-6000')
+                  ? 'Современные кроссовки Nike P-6000 в черном цвете. Футуристичный дизайн с отличной амортизацией. Идеальны для активного образа жизни и городских приключений.'
+                  : product.name.includes('Crocs белые')
+                  ? 'Классические белые Crocs - легендарная обувь для максимального комфорта. Изготовлены из запатентованного материала Croslite. Идеальны для дома, дачи, пляжа и повседневной носки в стильном белом цвете.'
                   : product.name.includes('Asics')
                   ? 'Высокотехнологичные кроссовки Asics Gel-Kahana TR V2 для активного образа жизни. Современная модель с технологией Gel для максимального комфорта и амортизации. Прочная конструкция и стильный дизайн делают их идеальными для тренировок и повседневной носки.'
                   : product.name.includes('black')
@@ -221,7 +231,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
               <h3 className="font-montserrat font-semibold text-lg text-slate">
                 Выберите размер
               </h3>
-              {product.name.includes('Кроссовки') || product.name.includes('Crocs') || product.name.includes('Adidas') ? (
+              {product.name.includes('Кроссовки') || product.name.includes('Crocs') || product.name.includes('Adidas') || product.name.includes('New Balance') || product.name.includes('Nike') ? (
                 <div className="space-y-2">
                   {product.sizes.map((size, index) => (
                     <Button
@@ -287,6 +297,14 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Замша, резиновая подошва'
                       : product.name.includes('Gel Nyc')
                       ? 'Сетчатый материал, замша, резиновая подошва'
+                      : product.name.includes('Gel Kahana 8 черные')
+                      ? 'Сетчатый материал, синтетика, резиновая подошва'
+                      : product.name.includes('New Balance 530')
+                      ? 'Сетчатый материал, синтетическая кожа'
+                      : product.name.includes('Nike P-6000')
+                      ? 'Текстиль, синтетика, резиновая подошва'
+                      : product.name.includes('Crocs белые')
+                      ? 'Croslite (запатентованная пена)'
                       : product.name.includes('Asics')
                       ? 'Синтетика, текстиль'
                       : '100% хлопок'
@@ -313,7 +331,17 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       : product.name.includes('Handball Spezial')
                       ? 'Черный'
                       : product.name.includes('Gel Nyc')
-                      ? 'Серо-зеленый'  
+                      ? 'Серо-зеленый'
+                      : product.name.includes('Handball Spezial синие')
+                      ? 'Синий'
+                      : product.name.includes('Gel Kahana 8 черные')
+                      ? 'Черный'
+                      : product.name.includes('New Balance 530')
+                      ? 'Белый'
+                      : product.name.includes('Nike P-6000')
+                      ? 'Черный'
+                      : product.name.includes('Crocs белые')
+                      ? 'Белый'  
                       : product.name.includes('Asics')
                       ? 'Серый/Белый'
                       : product.name.includes('Essentials') 
@@ -342,6 +370,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Yeezy'
                       : product.name.includes('Nike')
                       ? 'Nike'
+                      : product.name.includes('New Balance')
+                      ? 'New Balance'
                       : product.name.includes('Munchen') || product.name.includes('Handball Spezial')
                       ? 'Adidas'
                       : product.name.includes('Crocs')
@@ -388,6 +418,14 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Gel амортизация, современный дизайн'
                       : product.name.includes('Gel Nyc')
                       ? 'Gel амортизация, футуристичный дизайн'
+                      : product.name.includes('Gel Kahana 8 черные')
+                      ? 'Gel амортизация, дышащая сетка'
+                      : product.name.includes('New Balance 530')
+                      ? 'ABZORB амортизация, ретро-дизайн'
+                      : product.name.includes('Nike P-6000')
+                      ? 'Air амортизация, современный дизайн'
+                      : product.name.includes('Crocs белые')
+                      ? 'Легкость, водостойкость'
                       : product.name.includes('Asics')
                       ? 'Gel амортизация'
                       : 'Chinese art design'

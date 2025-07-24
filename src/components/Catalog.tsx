@@ -163,6 +163,56 @@ const Catalog = () => {
       image: "https://cdn.poehali.dev/files/04c0c9af-9d77-426f-ba30-6ddc5e4a17fc.jpeg",
       isNew: true,
       discount: null
+    },
+    {
+      id: 11,
+      name: "Кроссовки Adidas Handball Spezial синие",
+      price: "3000₽",
+      sizes: ["42 EU — 25,5 см", "43 EU — 26,5 см", "44 EU — 27,5 см", "45 EU — 28,5 см"],
+      sizeNumbers: ["42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/47df6c10-8269-43b5-b99e-38637229fd24.jpeg",
+      isNew: true,
+      discount: null
+    },
+    {
+      id: 12,
+      name: "Кроссовки Asics Gel Kahana 8 черные",
+      price: "3500₽",
+      sizes: ["41 EU — 25,5 см", "42 EU — 26,5 см", "43 EU — 27,5 см", "44 EU — 28,5 см", "45 EU — 29,5 см", "46 EU — 30 см", "47 EU — 31 см", "48 EU — 32 см"],
+      sizeNumbers: ["41", "42", "43", "44", "45", "46", "47", "48"],
+      image: "https://cdn.poehali.dev/files/60aa6f6c-84d0-4c0c-88ef-1309a358e38d.jpeg",
+      isNew: true,
+      discount: null
+    },
+    {
+      id: 13,
+      name: "Кроссовки New Balance 530 белые",
+      price: "3000₽",
+      sizes: ["41 EU — 25,5 см", "42 EU — 26,5 см", "43 EU — 27,5 см", "44 EU — 28,5 см"],
+      sizeNumbers: ["41", "42", "43", "44"],
+      image: "https://cdn.poehali.dev/files/1d737981-2d09-4c05-8ab6-f6570769edd2.jpeg",
+      isNew: true,
+      discount: null
+    },
+    {
+      id: 14,
+      name: "Кроссовки Nike P-6000 черные",
+      price: "3000₽",
+      sizes: ["41 EU — 25,5 см", "42 EU — 26,5 см", "43 EU — 27,5 см", "44 EU — 28,5 см", "45 EU — 29,5 см"],
+      sizeNumbers: ["41", "42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/79a65772-2350-4ca3-a90c-ffb127827584.jpeg",
+      isNew: true,
+      discount: null
+    },
+    {
+      id: 15,
+      name: "Crocs белые",
+      price: "2000₽",
+      sizes: ["36 EU — 20 см", "37 EU — 21 см", "38 EU — 22 см", "39 EU — 23 см", "40 EU — 24 см", "41 EU — 25 см"],
+      sizeNumbers: ["36", "37", "38", "39", "40", "41"],
+      image: "https://cdn.poehali.dev/files/e8f98d3a-960f-43bf-85f9-203b7db5c29e.jpeg",
+      isNew: true,
+      discount: null
     }
   ];
   
@@ -315,7 +365,7 @@ const Catalog = () => {
         products={
           selectedProduct.name.includes('longsleeve') || selectedProduct.name.includes('Essentials') 
             ? longsleeveProducts 
-            : selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs') || selectedProduct.name.includes('Adidas')
+            : selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs') || selectedProduct.name.includes('Adidas') || selectedProduct.name.includes('New Balance') || selectedProduct.name.includes('Nike')
             ? sneakersProducts
             : [selectedProduct]
         }
