@@ -99,6 +99,20 @@ const Header = () => {
               <Icon name="Truck" size={14} className="mr-1" />
               Бесплатная доставка от 3000₽
             </Badge>
+            <Button 
+              variant="outline" 
+              className="relative border-violet text-violet hover:bg-violet hover:text-white transition-colors"
+              onClick={() => {
+                // Функционал корзины будет добавлен позже
+                console.log('Открыть корзину');
+              }}
+            >
+              <Icon name="ShoppingBag" size={20} className="mr-2" />
+              <span className="hidden sm:inline">Корзина</span>
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                0
+              </span>
+            </Button>
             <Button variant="outline" className="md:hidden">
               <Icon name="Menu" size={20} />
             </Button>
