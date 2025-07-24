@@ -127,7 +127,9 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
               <p className="text-gray-600 leading-relaxed">
                 {product.name.includes('Худи') 
                   ? 'Стильное худи в коллаборации Гоши Рубчинского и Kanye West с принтом "Черные псы". Выполнено из качественного хлопка с добавлением полиэстера. Удобная посадка и современный дизайн делают это худи идеальным выбором для повседневной носки.'
-                  : 'Классическая спортивная ветровка Adidas с белыми полосками. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
+                  : product.name.includes('Ветровки')
+                  ? 'Классическая спортивная ветровка Adidas с белыми полосками. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
+                  : 'Эксклюзивная футболка ERD (Enfants Riches Déprimés) с художественным принтом в китайском стиле. Высококачественный хлопок, оверсайз крой. Стильная модель для ценителей уличной моды и арт-дизайна.'
                 }
               </p>
             </div>
@@ -163,19 +165,54 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex justify-between">
                   <span>Материал:</span>
-                  <span>{product.name.includes('Худи') ? '80% хлопок, 20% полиэстер' : '100% полиэстер'}</span>
+                  <span>
+                    {product.name.includes('Худи') 
+                      ? '80% хлопок, 20% полиэстер' 
+                      : product.name.includes('Ветровки')
+                      ? '100% полиэстер'
+                      : '100% хлопок'
+                    }
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Цвет:</span>
-                  <span>Серый</span>
+                  <span>{product.name.includes('Футболка') ? 'Черный' : 'Серый'}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>{product.name.includes('Худи') ? 'Коллекция:' : 'Бренд:'}</span>
-                  <span>{product.name.includes('Худи') ? 'Гоша Рубчинский х Kanye West' : 'Adidas Originals'}</span>
+                  <span>
+                    {product.name.includes('Худи') 
+                      ? 'Коллекция:' 
+                      : product.name.includes('Ветровки')
+                      ? 'Бренд:'
+                      : 'Бренд:'
+                    }
+                  </span>
+                  <span>
+                    {product.name.includes('Худи') 
+                      ? 'Гоша Рубчинский х Kanye West' 
+                      : product.name.includes('Ветровки')
+                      ? 'Adidas Originals'
+                      : 'ERD (Enfants Riches Déprimés)'
+                    }
+                  </span>
                 </div>
                 <div className="flex justify-between">
-                  <span>{product.name.includes('Худи') ? 'Принт:' : 'Особенности:'}</span>
-                  <span>{product.name.includes('Худи') ? 'Черные псы' : 'Белые полоски, логотип trefoil'}</span>
+                  <span>
+                    {product.name.includes('Худи') 
+                      ? 'Принт:' 
+                      : product.name.includes('Ветровки')
+                      ? 'Особенности:'
+                      : 'Принт:'
+                    }
+                  </span>
+                  <span>
+                    {product.name.includes('Худи') 
+                      ? 'Черные псы' 
+                      : product.name.includes('Ветровки')
+                      ? 'Белые полоски, логотип trefoil'
+                      : 'Chinese art design'
+                    }
+                  </span>
                 </div>
               </div>
             </div>

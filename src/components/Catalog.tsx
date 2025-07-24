@@ -28,6 +28,17 @@ const Catalog = () => {
     isNew: false,
     discount: null
   };
+
+  const tshirtProduct = {
+    id: 3,
+    name: "Футболка ERD Chinese enfants riches deprimes",
+    price: "2200₽",
+    sizes: ["S", "M", "L", "XL"],
+    sizeNumbers: ["1", "2", "3", "4"],
+    image: "https://cdn.poehali.dev/files/4f43107a-2067-42ff-8c69-1d4971646dca.jpeg",
+    isNew: false,
+    discount: null
+  };
   
   const openHoodieModal = () => {
     setSelectedProduct(hoodieProduct);
@@ -35,6 +46,10 @@ const Catalog = () => {
 
   const openWindbreakerModal = () => {
     setSelectedProduct(windbreakerProduct);
+  };
+
+  const openTshirtModal = () => {
+    setSelectedProduct(tshirtProduct);
   };
   
   const closeProductModal = () => {
@@ -137,6 +152,8 @@ const Catalog = () => {
                     openHoodieModal();
                   } else if (category.id === 'windbreakers') {
                     openWindbreakerModal();
+                  } else if (category.id === 'tshirts') {
+                    openTshirtModal();
                   } else {
                     const catalogSection = document.getElementById(category.id);
                     if (catalogSection) {
