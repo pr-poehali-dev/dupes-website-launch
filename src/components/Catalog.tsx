@@ -65,7 +65,7 @@ const Catalog = () => {
 
   const sneakersProducts = [
     {
-      id: 6,
+      id: 1,
       name: "Кроссовки Asics Gel-Kahana TR V2",
       price: "2900₽",
       sizes: ["37 EU — 21,5 см", "38 EU — 22,5 см", "39 EU — 23,5 см", "40 EU — 24,5 см", "41 EU — 25,5 см"],
@@ -75,7 +75,7 @@ const Catalog = () => {
       discount: null
     },
     {
-      id: 7,
+      id: 2,
       name: "Кроссовки Nike Air Force 1 black",
       price: "3000₽",
       sizes: ["41 EU — 25 см", "42 EU — 26 см", "43 EU — 27 см", "44 EU — 28 см", "45 EU — 29 см"],
@@ -85,7 +85,7 @@ const Catalog = () => {
       discount: null
     },
     {
-      id: 8,
+      id: 3,
       name: "Кроссовки Nike Air Force 1 white",
       price: "3000₽",
       sizes: ["42 EU — 25,5 см", "43 EU — 26,5 см", "44 EU — 27,5 см", "45 EU — 28,5 см"],
