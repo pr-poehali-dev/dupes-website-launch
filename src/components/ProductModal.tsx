@@ -5,6 +5,11 @@ import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
 import { toast } from 'sonner';
+import ProductImageGallery from './product-modal/ProductImageGallery';
+import ProductDescription from './product-modal/ProductDescription';
+import ProductSizeSelector from './product-modal/ProductSizeSelector';
+import ProductSpecifications from './product-modal/ProductSpecifications';
+import ProductCartActions from './product-modal/ProductCartActions';
 
 interface ProductModalProps {
   product: {
@@ -40,7 +45,6 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
   const { addToCart, removeFromCart, items } = useCart();
   
   const images = product.images || [product.image];
-  const currentImage = images[selectedImageIndex];
   
   const currentProductIndex = products.findIndex(p => p.id === product.id);
   const canNavigatePrev = products.length > 1 && currentProductIndex > 0;
@@ -124,68 +128,12 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
         </DialogHeader>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <div className="relative">
-              <img 
-                src={currentImage} 
-                alt={product.name}
-                className="w-full h-96 lg:h-[500px] object-cover rounded-lg"
-              />
-              {product.isNew && (
-                <Badge className="absolute top-4 left-4 bg-emerald text-white">
-                  NEW
-                </Badge>
-              )}
-              {product.discount && (
-                <Badge className="absolute top-4 right-4 bg-red-500 text-white">
-                  -{product.discount}%
-                </Badge>
-              )}
-              
-              {images.length > 1 && (
-                <>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
-                    onClick={() => setSelectedImageIndex(selectedImageIndex === 0 ? images.length - 1 : selectedImageIndex - 1)}
-                  >
-                    <Icon name="ChevronLeft" size={20} />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
-                    onClick={() => setSelectedImageIndex(selectedImageIndex === images.length - 1 ? 0 : selectedImageIndex + 1)}
-                  >
-                    <Icon name="ChevronRight" size={20} />
-                  </Button>
-                </>
-              )}
-            </div>
-            
-            {images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto pb-2">
-                {images.map((image, index) => (
-                  <button
-                    key={index}
-                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                      selectedImageIndex === index 
-                        ? 'border-violet shadow-lg' 
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                    onClick={() => setSelectedImageIndex(index)}
-                  >
-                    <img 
-                      src={image} 
-                      alt={`${product.name} фото ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          <ProductImageGallery
+            product={product}
+            images={images}
+            selectedImageIndex={selectedImageIndex}
+            onImageIndexChange={setSelectedImageIndex}
+          />
 
           <div className="space-y-6">
             <div className="flex items-center gap-4">
@@ -199,323 +147,26 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
               )}
             </div>
 
-            <div className="space-y-3">
-              <h3 className="font-montserrat font-semibold text-lg text-slate">
-                Описание товара
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {product.name.includes('Худи') 
-                  ? 'Стильное худи в коллаборации Гоши Рубчинского и Kanye West с принтом "Черные псы". Выполнено из качественного хлопка с добавлением полиэстера. Удобная посадка и современный дизайн делают это худи идеальным выбором для повседневной носки.'
-                  : product.name.includes('Ветровка')
-                  ? 'Стильная черная ветровка Adidas Originals с контрастными белыми полосками на рукавах. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
-                  : product.name.includes('Футболка')
-                  ? 'Эксклюзивная футболка ERD (Enfants Riches Déprimés) с художественным принтом в китайском стиле. Высококачественный хлопок, оверсайз крой. Стильная модель для ценителей уличной моды и арт-дизайна.'
-                  : product.name.includes('Essentials')
-                  ? 'Лаконичный лонгслив из коллекции Essentials Fear Of God. Белая модель с минималистичным логотипом бренда. Высококачественный хлопок, комфортная посадка. Идеальный базовый элемент гардероба для ценителей премиальной уличной моды.'
-                  : product.name.includes('Yeezy')
-                  ? 'Эксклюзивный лонгслив Yeezy Bully с провокационным принтом. Белая модель с контрастным черно-белым изображением. Высококачественный хлопок, комфортная посадка. Идеальный выбор для любителей уличной моды и коллекционеров Yeezy.'
-                  : product.name.includes('Gel Kahana 8')
-                  ? 'Беговые кроссовки Asics Gel Kahana 8 в стильной бежевой расцветке. Универсальная модель с превосходной амортизацией и поддержкой для бега по различным поверхностям. Легкая конструкция и дышащие материалы обеспечивают комфорт на длинных дистанциях.'
-                  : product.name.includes('Munchen')
-                  ? 'Классические кроссовки Adidas Munchen в винтажном стиле. Легендарная модель из коллекции Spezial с замшевым верхом и контрастными тремя полосками. Идеально подходят для создания ретро-образов и повседневной носки.'
-                  : product.name.includes('Crocs')
-                  ? 'Классические черные Crocs - легендарная обувь для максимального комфорта. Изготовлены из запатентованного материала Croslite, который обеспечивает непревзойденную легкость и амортизацию. Идеальны для дома, дачи, пляжа и повседневной носки.'
-                  : product.name.includes('Gel Rocket 10')
-                  ? 'Профессиональные волейбольные кроссовки Asics Gel Rocket 10. Специально разработаны для игры в зале с превосходной амортизацией и поддержкой стопы. Легкие, дышащие и невероятно комфортные для интенсивных тренировок.'
-                  : product.name.includes('Gel Preleus')
-                  ? 'Стильные кроссовки Asics Gel Preleus с современным дизайном в светло-бежевой расцветке. Модель сочетает в себе комфорт технологии Gel и элегантный внешний вид. Идеальны для повседневной носки и создания модных образов.'
-                  : product.name.includes('Handball Spezial черные')
-                  ? 'Классические кроссовки Adidas Handball Spezial в элегантном черном цвете. Легендарная модель для гандбола с замшевым верхом и знаменитыми тремя полосками. Винтажный дизайн и высокое качество делают их идеальными для повседневной носки и создания стильных образов.'
-                  : product.name.includes('Handball Spezial синие')
-                  ? 'Классические кроссовки Adidas Handball Spezial в стильном синем цвете. Легендарная модель для гандбола с замшевым верхом и контрастными голубыми полосками. Винтажный дизайн и премиальные материалы для создания неповторимых образов.'
-                  : product.name.includes('Handball Spezial серые')
-                  ? 'Классические кроссовки Adidas Handball Spezial в элегантном сером цвете. Легендарная модель для гандбола с замшевым верхом и белыми тремя полосками. Винтажный дизайн в нейтральной расцветке подходит к любому стилю одежды.'
-                  : product.name.includes('Gel Nyc')
-                  ? 'Стильные кроссовки Asics Gel Nyc в серо-зеленой расцветке. Современная модель с технологией Gel и футуристичным дизайном. Идеальное сочетание комфорта и стиля для повседневной носки и активного образа жизни.'
-                  : product.name.includes('Gel Kahana 8 черные')
-                  ? 'Беговые кроссовки Asics Gel Kahana 8 в стильной черной расцветке. Универсальная модель с превосходной амортизацией и поддержкой для бега по различным поверхностям. Прочная конструкция и дышащие материалы для максимального комфорта.'
-                  : product.name.includes('New Balance 530')
-                  ? 'Стильные кроссовки New Balance 530 в классическом белом цвете. Ретро-дизайн с современными технологиями. Идеально подходят для повседневной носки и создания спортивных образов.'
-                  : product.name.includes('Nike P-6000')
-                  ? 'Современные кроссовки Nike P-6000 в черном цвете. Футуристичный дизайн с отличной амортизацией. Идеальны для активного образа жизни и городских приключений.'
-                  : product.name.includes('Crocs белые')
-                  ? 'Классические белые Crocs - легендарная обувь для максимального комфорта. Изготовлены из запатентованного материала Croslite. Идеальны для дома, дачи, пляжа и повседневной носки в стильном белом цвете.'
-                  : product.name.includes('Asics')
-                  ? 'Высокотехнологичные кроссовки Asics Gel-Kahana TR V2 для активного образа жизни. Современная модель с технологией Gel для максимального комфорта и амортизации. Прочная конструкция и стильный дизайн делают их идеальными для тренировок и повседневной носки.'
-                  : product.name.includes('black')
-                  ? 'Классические кроссовки Nike Air Force 1 в черном цвете. Легендарная модель баскетбольной обуви, ставшая иконой уличной моды. Премиальная кожа, удобная посадка и узнаваемый дизайн делают их идеальным выбором для повседневной носки.'
-                  : 'Классические кроссовки Nike Air Force 1 в белом цвете. Легендарная модель баскетбольной обуви в иконичной белой расцветке. Премиальная кожа, комфортная посадка и вечный дизайн делают их must-have для любого гардероба.'
-                }
-              </p>
-            </div>
+            <ProductDescription product={product} />
 
-            <div className="space-y-3">
-              <h3 className="font-montserrat font-semibold text-lg text-slate">
-                Выберите размер
-              </h3>
-              {product.name.includes('Кроссовки') || product.name.includes('Crocs') || product.name.includes('Adidas') || product.name.includes('New Balance') || product.name.includes('Nike') ? (
-                <div className="space-y-2">
-                  {product.sizes.map((size, index) => (
-                    <Button
-                      key={size}
-                      variant={selectedSize === product.sizeNumbers[index] ? "default" : "outline"}
-                      className={`w-full justify-start text-sm h-auto py-2 ${selectedSize === product.sizeNumbers[index]
-                        ? 'bg-violet hover:bg-violet/90 text-white'
-                        : 'hover:bg-gray-50'
-                      }`}
-                      onClick={() => setSelectedSize(product.sizeNumbers[index])}
-                    >
-                      • {size}
-                    </Button>
-                  ))}
-                </div>
-              ) : (
-                <div className="space-y-2">
-                  {product.sizes.map((size, index) => (
-                    <Button
-                      key={size}
-                      variant={selectedSize === size ? "default" : "outline"}
-                      className={`w-full justify-between text-sm h-auto py-3 ${selectedSize === size 
-                        ? 'bg-violet hover:bg-violet/90 text-white' 
-                        : 'hover:border-violet hover:text-violet'
-                      }`}
-                      onClick={() => setSelectedSize(size)}
-                    >
-                      <span className="font-bold">{size}</span>
-                      <span className="text-xs opacity-70">({product.sizeNumbers[index]})</span>
-                    </Button>
-                  ))}
-                </div>
-              )}
-            </div>
+            <ProductSizeSelector
+              product={product}
+              selectedSize={selectedSize}
+              onSizeSelect={setSelectedSize}
+            />
 
-            <div className="space-y-3">
-              <h3 className="font-montserrat font-semibold text-lg text-slate">
-                Характеристики
-              </h3>
-              <div className="space-y-2 text-sm text-gray-600">
-                <div className="flex justify-between">
-                  <span>Материал:</span>
-                  <span>
-                    {product.name.includes('Худи') 
-                      ? '80% хлопок, 20% полиэстер' 
-                      : product.name.includes('Ветровка')
-                      ? '100% полиэстер'
-                      : product.name.includes('Nike')
-                      ? 'Натуральная кожа'
-                      : product.name.includes('Gel Kahana 8')
-                      ? 'Сетчатый материал, резиновая подошва'
-                      : product.name.includes('Munchen')
-                      ? 'Замша, резиновая подошва'
-                      : product.name.includes('Crocs')
-                      ? 'Croslite (запатентованная пена)'
-                      : product.name.includes('Gel Rocket 10')
-                      ? 'Синтетика, сетчатые вставки'
-                      : product.name.includes('Gel Preleus')
-                      ? 'Синтетика, текстиль, резиновая подошва'
-                      : product.name.includes('Handball Spezial')
-                      ? 'Замша, резиновая подошва'
-                      : product.name.includes('Gel Nyc')
-                      ? 'Сетчатый материал, замша, резиновая подошва'
-                      : product.name.includes('Gel Kahana 8 черные')
-                      ? 'Сетчатый материал, синтетика, резиновая подошва'
-                      : product.name.includes('New Balance 530')
-                      ? 'Сетчатый материал, синтетическая кожа'
-                      : product.name.includes('Nike P-6000')
-                      ? 'Текстиль, синтетика, резиновая подошва'
-                      : product.name.includes('Crocs белые')
-                      ? 'Croslite (запатентованная пена)'
-                      : product.name.includes('Asics')
-                      ? 'Синтетика, текстиль'
-                      : '100% хлопок'
-                    }
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Цвет:</span>
-                  <span>
-                    {product.name.includes('black')
-                      ? 'Черный'
-                      : product.name.includes('white')
-                      ? 'Белый'
-                      : product.name.includes('Gel Kahana 8')
-                      ? 'Бежевый'
-                      : product.name.includes('Munchen')
-                      ? 'Бордовый/Черный'
-                      : product.name.includes('Crocs')
-                      ? 'Черный'
-                      : product.name.includes('Gel Rocket 10')
-                      ? 'Черный/Белый'
-                      : product.name.includes('Gel Preleus')
-                      ? 'Светло-бежевый'
-                      : product.name.includes('Handball Spezial')
-                      ? 'Черный'
-                      : product.name.includes('Gel Nyc')
-                      ? 'Серо-зеленый'
-                      : product.name.includes('Handball Spezial синие')
-                      ? 'Синий'
-                      : product.name.includes('Handball Spezial серые')
-                      ? 'Серый'
-                      : product.name.includes('Gel Kahana 8 черные')
-                      ? 'Черный'
-                      : product.name.includes('New Balance 530')
-                      ? 'Белый'
-                      : product.name.includes('Nike P-6000')
-                      ? 'Черный'
-                      : product.name.includes('Crocs белые')
-                      ? 'Белый'  
-                      : product.name.includes('Asics')
-                      ? 'Серый/Белый'
-                      : product.name.includes('Essentials') 
-                      ? 'Белый' 
-                      : product.name.includes('Футболка') 
-                      ? 'Черный' 
-                      : product.name.includes('Ветровка')
-                      ? 'Черный'
-                      : 'Серый'
-                    }
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span>
-                    {product.name.includes('Худи') 
-                      ? 'Коллекция:' 
-                      : 'Бренд:'
-                    }
-                  </span>
-                  <span>
-                    {product.name.includes('Худи') 
-                      ? 'Гоша Рубчинский х Kanye West' 
-                      : product.name.includes('Ветровка')
-                      ? 'Adidas Originals'
-                      : product.name.includes('Essentials')
-                      ? 'Fear Of God Essentials'
-                      : product.name.includes('Yeezy')
-                      ? 'Yeezy'
-                      : product.name.includes('Nike')
-                      ? 'Nike'
-                      : product.name.includes('New Balance')
-                      ? 'New Balance'
-                      : product.name.includes('Munchen') || product.name.includes('Handball Spezial')
-                      ? 'Adidas'
-                      : product.name.includes('Crocs')
-                      ? 'Crocs'
-                      : product.name.includes('Asics')
-                      ? 'Asics'
-                      : 'ERD (Enfants Riches Déprimés)'
-                    }
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span>
-                    {product.name.includes('Худи') 
-                      ? 'Принт:' 
-                      : product.name.includes('Ветровка')
-                      ? 'Особенности:'
-                      : product.name.includes('Кроссовки') || product.name.includes('Adidas')
-                      ? 'Технология:'
-                      : 'Принт:'
-                    }
-                  </span>
-                  <span>
-                    {product.name.includes('Худи') 
-                      ? 'Черные псы' 
-                      : product.name.includes('Ветровка')
-                      ? 'Белые полоски, логотип trefoil'
-                      : product.name.includes('Essentials')
-                      ? 'Минималистичный логотип'
-                      : product.name.includes('Yeezy')
-                      ? 'Bully graphic art'
-                      : product.name.includes('Nike')
-                      ? 'Air амортизация'
-                      : product.name.includes('Gel Kahana 8')
-                      ? 'Gel амортизация, дышащая сетка'
-                      : product.name.includes('Munchen')
-                      ? 'Винтажный дизайн, три полоски'
-                      : product.name.includes('Handball Spezial')
-                      ? 'Винтажный дизайн, замшевый верх'
-                      : product.name.includes('Crocs')
-                      ? 'Легкость, водостойкость'
-                      : product.name.includes('Gel Rocket 10')
-                      ? 'Gel амортизация, поддержка стопы'
-                      : product.name.includes('Gel Preleus')
-                      ? 'Gel амортизация, современный дизайн'
-                      : product.name.includes('Gel Nyc')
-                      ? 'Gel амортизация, футуристичный дизайн'
-                      : product.name.includes('Gel Kahana 8 черные')
-                      ? 'Gel амортизация, дышащая сетка'
-                      : product.name.includes('New Balance 530')
-                      ? 'ABZORB амортизация, ретро-дизайн'
-                      : product.name.includes('Nike P-6000')
-                      ? 'Air амортизация, современный дизайн'
-                      : product.name.includes('Crocs белые')
-                      ? 'Легкость, водостойкость'
-                      : product.name.includes('Asics')
-                      ? 'Gel амортизация'
-                      : 'Chinese art design'
-                    }
-                  </span>
-                </div>
-              </div>
-            </div>
+            <ProductSpecifications product={product} />
 
-            <div className="space-y-4">
-              {!isInCart && (
-                <div className="flex items-center justify-between">
-                  <span className="font-montserrat font-semibold text-slate">Количество:</span>
-                  <div className="flex items-center gap-3">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="h-8 w-8"
-                    >
-                      <Icon name="Minus" size={16} />
-                    </Button>
-                    <span className="font-montserrat font-semibold text-lg w-8 text-center">{quantity}</span>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => setQuantity(quantity + 1)}
-                      className="h-8 w-8"
-                    >
-                      <Icon name="Plus" size={16} />
-                    </Button>
-                  </div>
-                </div>
-              )}
-              
-              {isInCart ? (
-                <div className="space-y-3">
-                  <div className="bg-emerald/10 border border-emerald/20 rounded-lg p-3 text-center">
-                    <p className="text-sm text-emerald font-medium">
-                      Товар добавлен в корзину ({cartItem?.quantity} шт.)
-                    </p>
-                  </div>
-                  <Button 
-                    onClick={handleRemoveFromCart}
-                    className="w-full bg-red-500 hover:bg-red-600 text-white font-montserrat font-semibold py-3"
-                    size="lg"
-                    disabled={!selectedSize}
-                  >
-                    <Icon name="Trash2" size={20} className="mr-2" />
-                    Удалить из корзины
-                  </Button>
-                </div>
-              ) : (
-                <Button 
-                  onClick={handleAddToCart}
-                  className="w-full bg-violet hover:bg-violet/90 text-white font-montserrat font-semibold py-3"
-                  size="lg"
-                  disabled={!selectedSize}
-                >
-                  <Icon name="ShoppingCart" size={20} className="mr-2" />
-                  Добавить в корзину
-                </Button>
-              )}
-            </div>
-
-
+            <ProductCartActions
+              product={product}
+              selectedSize={selectedSize}
+              quantity={quantity}
+              isInCart={isInCart}
+              cartItem={cartItem}
+              onQuantityChange={setQuantity}
+              onAddToCart={handleAddToCart}
+              onRemoveFromCart={handleRemoveFromCart}
+            />
           </div>
         </div>
       </DialogContent>
