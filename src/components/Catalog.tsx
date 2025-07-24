@@ -113,6 +113,16 @@ const Catalog = () => {
       image: "https://cdn.poehali.dev/files/580aeec3-d1fd-43a3-9ffa-d801106f8a9c.jpeg",
       isNew: false,
       discount: null
+    },
+    {
+      id: 6,
+      name: "Кроссовки Adidas Munchen",
+      price: "3000₽",
+      sizes: ["42 EU — 25,5 см", "43 EU — 26,5 см", "44 EU — 27,5 см", "45 EU — 28,5 см"],
+      sizeNumbers: ["42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/ccb75f3b-c1e1-4f9a-9cff-9e31adf4f69e.jpeg",
+      isNew: false,
+      discount: null
     }
   ];
   
