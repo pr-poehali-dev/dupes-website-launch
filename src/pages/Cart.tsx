@@ -16,15 +16,16 @@ export default function Cart() {
       return;
     }
 
-    const orderDetails = items.map(item => 
-      `${item.name} (Размер: ${item.size}, Кол-во: ${item.quantity})`
-    ).join('\n');
+    const orderMessage = items.map(item => {
+      const priceNum = parseInt(item.price.replace(/[^\d]/g, ''));
+      return `${item.name}\nРазмер: ${item.size}\n${priceNum * item.quantity}₽`;
+    }).join('\n\n');
     
     const totalPrice = getTotalPrice();
-    const message = `Заказ:\n${orderDetails}\n\nОбщая сумма: ${totalPrice}₽`;
+    const message = `Здравствуйте, хочу приобрести данный товар.\n\n${orderMessage}`;
     
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/79029903444?text=${encodedMessage}`, '_blank');
+    window.open(`https://t.me/Dupes_manager?text=${encodedMessage}`, '_blank');
   };
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
@@ -136,8 +137,8 @@ export default function Cart() {
                     className="w-full bg-violet hover:bg-violet/90" 
                     size="lg"
                   >
-                    <Icon name="MessageCircle" size={20} className="mr-2" />
-                    Оформить заказ в WhatsApp
+                    <Icon name="Send" size={20} className="mr-2" />
+                    Оформить заказ в Telegram
                   </Button>
                   {totalPrice < 3000 && (
                     <p className="text-sm text-gray-600 text-center">
