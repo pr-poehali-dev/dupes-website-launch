@@ -206,6 +206,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ? 'Стильные кроссовки Asics Gel Preleus с современным дизайном в светло-бежевой расцветке. Модель сочетает в себе комфорт технологии Gel и элегантный внешний вид. Идеальны для повседневной носки и создания модных образов.'
                   : product.name.includes('Handball Spezial')
                   ? 'Классические кроссовки Adidas Handball Spezial в элегантном черном цвете. Легендарная модель для гандбола с замшевым верхом и знаменитыми тремя полосками. Винтажный дизайн и высокое качество делают их идеальными для повседневной носки и создания стильных образов.'
+                  : product.name.includes('Gel Nyc')
+                  ? 'Стильные кроссовки Asics Gel Nyc в серо-зеленой расцветке. Современная модель с технологией Gel и футуристичным дизайном. Идеальное сочетание комфорта и стиля для повседневной носки и активного образа жизни.'
                   : product.name.includes('Asics')
                   ? 'Высокотехнологичные кроссовки Asics Gel-Kahana TR V2 для активного образа жизни. Современная модель с технологией Gel для максимального комфорта и амортизации. Прочная конструкция и стильный дизайн делают их идеальными для тренировок и повседневной носки.'
                   : product.name.includes('black')
@@ -283,6 +285,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Синтетика, текстиль, резиновая подошва'
                       : product.name.includes('Handball Spezial')
                       ? 'Замша, резиновая подошва'
+                      : product.name.includes('Gel Nyc')
+                      ? 'Сетчатый материал, замша, резиновая подошва'
                       : product.name.includes('Asics')
                       ? 'Синтетика, текстиль'
                       : '100% хлопок'
@@ -307,7 +311,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       : product.name.includes('Gel Preleus')
                       ? 'Светло-бежевый'
                       : product.name.includes('Handball Spezial')
-                      ? 'Черный'  
+                      ? 'Черный'
+                      : product.name.includes('Gel Nyc')
+                      ? 'Серо-зеленый'  
                       : product.name.includes('Asics')
                       ? 'Серый/Белый'
                       : product.name.includes('Essentials') 
@@ -380,6 +386,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Gel амортизация, поддержка стопы'
                       : product.name.includes('Gel Preleus')
                       ? 'Gel амортизация, современный дизайн'
+                      : product.name.includes('Gel Nyc')
+                      ? 'Gel амортизация, футуристичный дизайн'
                       : product.name.includes('Asics')
                       ? 'Gel амортизация'
                       : 'Chinese art design'

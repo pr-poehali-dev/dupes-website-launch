@@ -153,6 +153,16 @@ const Catalog = () => {
       image: "https://cdn.poehali.dev/files/6335a974-6636-485b-ade9-e3d6629937d1.jpeg",
       isNew: true,
       discount: null
+    },
+    {
+      id: 10,
+      name: "Кроссовки Asics Gel Nyc",
+      price: "3500₽",
+      sizes: ["41 EU — 25,5 см", "42 EU — 26,5 см", "43 EU — 27,5 см", "44 EU — 28,5 см", "45 EU — 29,5 см"],
+      sizeNumbers: ["41", "42", "43", "44", "45"],
+      image: "https://cdn.poehali.dev/files/04c0c9af-9d77-426f-ba30-6ddc5e4a17fc.jpeg",
+      isNew: true,
+      discount: null
     }
   ];
   
