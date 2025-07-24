@@ -67,8 +67,8 @@ const Catalog = () => {
     id: 6,
     name: "Кроссовки Asics Gel-Kahana TR V2",
     price: "2900₽",
-    sizes: ["36", "37", "38", "39", "40", "41"],
-    sizeNumbers: ["36", "37", "38", "39", "40", "41"],
+    sizes: ["37 EU — 21,5 см", "38 EU — 22,5 см", "39 EU — 23,5 см", "40 EU — 24,5 см", "41 EU — 25,5 см"],
+    sizeNumbers: ["37", "38", "39", "40", "41"],
     image: "https://cdn.poehali.dev/files/90caf808-95e1-4c25-96a2-6c4a8fdfb9e3.jpeg",
     isNew: false,
     discount: null
