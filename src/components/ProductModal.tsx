@@ -194,6 +194,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ? 'Лаконичный лонгслив из коллекции Essentials Fear Of God. Белая модель с минималистичным логотипом бренда. Высококачественный хлопок, комфортная посадка. Идеальный базовый элемент гардероба для ценителей премиальной уличной моды.'
                   : product.name.includes('Yeezy')
                   ? 'Эксклюзивный лонгслив Yeezy Bully с провокационным принтом. Белая модель с контрастным черно-белым изображением. Высококачественный хлопок, комфортная посадка. Идеальный выбор для любителей уличной моды и коллекционеров Yeezy.'
+                  : product.name.includes('Crocs')
+                  ? 'Классические черные Crocs - легендарная обувь для максимального комфорта. Изготовлены из запатентованного материала Croslite, который обеспечивает непревзойденную легкость и амортизацию. Идеальны для дома, дачи, пляжа и повседневной носки.'
                   : product.name.includes('Gel Rocket 10')
                   ? 'Профессиональные волейбольные кроссовки Asics Gel Rocket 10. Специально разработаны для игры в зале с превосходной амортизацией и поддержкой стопы. Легкие, дышащие и невероятно комфортные для интенсивных тренировок.'
                   : product.name.includes('Asics')
@@ -253,6 +255,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? '100% полиэстер'
                       : product.name.includes('Nike')
                       ? 'Натуральная кожа'
+                      : product.name.includes('Crocs')
+                      ? 'Croslite (запатентованная пена)'
                       : product.name.includes('Gel Rocket 10')
                       ? 'Синтетика, сетчатые вставки'
                       : product.name.includes('Asics')
@@ -268,6 +272,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Черный'
                       : product.name.includes('white')
                       ? 'Белый'
+                      : product.name.includes('Crocs')
+                      ? 'Черный'
                       : product.name.includes('Gel Rocket 10')
                       ? 'Черный/Белый'  
                       : product.name.includes('Asics')
@@ -298,6 +304,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Yeezy'
                       : product.name.includes('Nike')
                       ? 'Nike'
+                      : product.name.includes('Crocs')
+                      ? 'Crocs'
                       : product.name.includes('Asics')
                       ? 'Asics'
                       : 'ERD (Enfants Riches Déprimés)'
@@ -326,6 +334,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Bully graphic art'
                       : product.name.includes('Nike')
                       ? 'Air амортизация'
+                      : product.name.includes('Crocs')
+                      ? 'Легкость, водостойкость'
                       : product.name.includes('Gel Rocket 10')
                       ? 'Gel амортизация, поддержка стопы'
                       : product.name.includes('Asics')
