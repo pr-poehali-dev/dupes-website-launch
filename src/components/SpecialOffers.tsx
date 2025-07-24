@@ -80,7 +80,7 @@ const SpecialOffers = () => {
                 <span className="font-semibold text-gray-700">Платная доставка</span>
               </div>
               <p className="text-gray-600">
-                Если сумма заказа менее 3 000 рублей, стоимость доставки составляет <span className="font-bold">300 рублей</span> и будет добавлена к общей сумме заказа.
+                Если сумма заказа менее 3 000 рублей, стоимость доставки составляет <span className="font-bold">от 300 рублей</span> и будет добавлена к общей сумме заказа.
               </p>
             </div>
 
