@@ -31,9 +31,9 @@ const Catalog = () => {
 
   const windbreakerProduct = {
     id: 2,
-    name: "Ветровка Adidas Originals",
+    name: "Ветровки Adidas",
     price: "2800₽",
-    sizes: ["S", "M", "L", "XL"],
+    sizes: ["• S", "• M", "• L", "• XL"],
     sizeNumbers: ["1", "2", "3", "4"],
     image: "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
     isNew: false,
@@ -392,7 +392,7 @@ const Catalog = () => {
         products={
           selectedProduct.name.includes('longsleeve') || selectedProduct.name.includes('Essentials') 
             ? longsleeveProducts 
-            : (selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs') || (selectedProduct.name.includes('Adidas') && !selectedProduct.name.includes('Ветровка')) || selectedProduct.name.includes('New Balance') || selectedProduct.name.includes('Nike'))
+            : (selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs') || (selectedProduct.name.includes('Adidas') && !selectedProduct.name.includes('Ветровки')) || selectedProduct.name.includes('New Balance') || selectedProduct.name.includes('Nike'))
             ? sneakersProducts
             : [selectedProduct]
         }
