@@ -211,7 +211,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
               <h3 className="font-montserrat font-semibold text-lg text-slate">
                 Выберите размер
               </h3>
-              {product.name.includes('Кроссовки') ? (
+              {product.name.includes('Кроссовки') || product.name.includes('Crocs') ? (
                 <div className="space-y-1 text-gray-700">
                   {product.sizes.map((size) => (
                     <div key={size} className="text-sm">
