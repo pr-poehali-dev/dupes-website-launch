@@ -37,7 +37,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const [quantity, setQuantity] = useState<number>(1);
-  const { addToCart } = useCart();
+  const { addToCart, removeFromCart, items } = useCart();
   
   const images = product.images || [product.image];
   const currentImage = images[selectedImageIndex];
@@ -45,6 +45,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
   const currentProductIndex = products.findIndex(p => p.id === product.id);
   const canNavigatePrev = products.length > 1 && currentProductIndex > 0;
   const canNavigateNext = products.length > 1 && currentProductIndex < products.length - 1;
+  
+  const isInCart = items.some(item => item.id === product.id && item.size === selectedSize);
+  const cartItem = items.find(item => item.id === product.id && item.size === selectedSize);
   
   const handlePrevProduct = () => {
     if (canNavigatePrev && onProductChange) {
@@ -77,6 +80,11 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
     }, quantity);
     
     onClose();
+  };
+  
+  const handleRemoveFromCart = () => {
+    if (!selectedSize) return;
+    removeFromCart(product.id, selectedSize);
   };
 
   return (
@@ -452,38 +460,59 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="font-montserrat font-semibold text-slate">Количество:</span>
-                <div className="flex items-center gap-3">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="h-8 w-8"
+              {!isInCart && (
+                <div className="flex items-center justify-between">
+                  <span className="font-montserrat font-semibold text-slate">Количество:</span>
+                  <div className="flex items-center gap-3">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      className="h-8 w-8"
+                    >
+                      <Icon name="Minus" size={16} />
+                    </Button>
+                    <span className="font-montserrat font-semibold text-lg w-8 text-center">{quantity}</span>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="h-8 w-8"
+                    >
+                      <Icon name="Plus" size={16} />
+                    </Button>
+                  </div>
+                </div>
+              )}
+              
+              {isInCart ? (
+                <div className="space-y-3">
+                  <div className="bg-emerald/10 border border-emerald/20 rounded-lg p-3 text-center">
+                    <p className="text-sm text-emerald font-medium">
+                      Товар добавлен в корзину ({cartItem?.quantity} шт.)
+                    </p>
+                  </div>
+                  <Button 
+                    onClick={handleRemoveFromCart}
+                    className="w-full bg-red-500 hover:bg-red-600 text-white font-montserrat font-semibold py-3"
+                    size="lg"
+                    disabled={!selectedSize}
                   >
-                    <Icon name="Minus" size={16} />
-                  </Button>
-                  <span className="font-montserrat font-semibold text-lg w-8 text-center">{quantity}</span>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="h-8 w-8"
-                  >
-                    <Icon name="Plus" size={16} />
+                    <Icon name="Trash2" size={20} className="mr-2" />
+                    Удалить из корзины
                   </Button>
                 </div>
-              </div>
-              
-              <Button 
-                onClick={handleAddToCart}
-                className="w-full bg-violet hover:bg-violet/90 text-white font-montserrat font-semibold py-3"
-                size="lg"
-                disabled={!selectedSize}
-              >
-                <Icon name="ShoppingCart" size={20} className="mr-2" />
-                Добавить в корзину
-              </Button>
+              ) : (
+                <Button 
+                  onClick={handleAddToCart}
+                  className="w-full bg-violet hover:bg-violet/90 text-white font-montserrat font-semibold py-3"
+                  size="lg"
+                  disabled={!selectedSize}
+                >
+                  <Icon name="ShoppingCart" size={20} className="mr-2" />
+                  Добавить в корзину
+                </Button>
+              )}
             </div>
 
 
