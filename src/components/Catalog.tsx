@@ -63,16 +63,28 @@ const Catalog = () => {
     }
   ];
 
-  const sneakersProduct = {
-    id: 6,
-    name: "Кроссовки Asics Gel-Kahana TR V2",
-    price: "2900₽",
-    sizes: ["37 EU — 21,5 см", "38 EU — 22,5 см", "39 EU — 23,5 см", "40 EU — 24,5 см", "41 EU — 25,5 см"],
-    sizeNumbers: ["37", "38", "39", "40", "41"],
-    image: "https://cdn.poehali.dev/files/90caf808-95e1-4c25-96a2-6c4a8fdfb9e3.jpeg",
-    isNew: false,
-    discount: null
-  };
+  const sneakersProducts = [
+    {
+      id: 6,
+      name: "Кроссовки Asics Gel-Kahana TR V2",
+      price: "2900₽",
+      sizes: ["37 EU — 21,5 см", "38 EU — 22,5 см", "39 EU — 23,5 см", "40 EU — 24,5 см", "41 EU — 25,5 см"],
+      sizeNumbers: ["37", "38", "39", "40", "41"],
+      image: "https://cdn.poehali.dev/files/90caf808-95e1-4c25-96a2-6c4a8fdfb9e3.jpeg",
+      isNew: false,
+      discount: null
+    },
+    {
+      id: 7,
+      name: "Кроссовки Nike Air Force 1 black",
+      price: "3000₽",
+      sizes: ["41 EU — 25 см", "42 EU — 26 см", "43 EU — 27 см", "44 EU — 28 см", "45 EU — 29 см"],
+      sizeNumbers: ["41", "42", "43", "44", "45"],
+      image: "img/09253130-e1e9-4d5a-83c0-3bdb8f0898c3.jpg",
+      isNew: false,
+      discount: null
+    }
+  ];
   
   const openHoodieModal = () => {
     setSelectedProduct(hoodieProduct);
@@ -91,7 +103,7 @@ const Catalog = () => {
   };
 
   const openSneakersModal = () => {
-    setSelectedProduct(sneakersProduct);
+    setSelectedProduct(sneakersProducts[0]);
   };
   
   const closeProductModal = () => {
@@ -220,7 +232,13 @@ const Catalog = () => {
       <ProductModal 
         product={selectedProduct} 
         onClose={closeProductModal}
-        products={selectedProduct.name.includes('longsleeve') || selectedProduct.name.includes('Essentials') ? longsleeveProducts : [selectedProduct]}
+        products={
+          selectedProduct.name.includes('longsleeve') || selectedProduct.name.includes('Essentials') 
+            ? longsleeveProducts 
+            : selectedProduct.name.includes('Кроссовки')
+            ? sneakersProducts
+            : [selectedProduct]
+        }
         onProductChange={setSelectedProduct}
       />
     )}

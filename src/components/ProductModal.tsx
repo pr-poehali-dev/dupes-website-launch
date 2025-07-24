@@ -194,7 +194,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ? 'Лаконичный лонгслив из коллекции Essentials Fear Of God. Белая модель с минималистичным логотипом бренда. Высококачественный хлопок, комфортная посадка. Идеальный базовый элемент гардероба для ценителей премиальной уличной моды.'
                   : product.name.includes('Yeezy')
                   ? 'Эксклюзивный лонгслив Yeezy Bully с провокационным принтом. Белая модель с контрастным черно-белым изображением. Высококачественный хлопок, комфортная посадка. Идеальный выбор для любителей уличной моды и коллекционеров Yeezy.'
-                  : 'Высокотехнологичные кроссовки Asics Gel-Kahana TR V2 для активного образа жизни. Современная модель с технологией Gel для максимального комфорта и амортизации. Прочная конструкция и стильный дизайн делают их идеальными для тренировок и повседневной носки.'
+                  : product.name.includes('Asics')
+                  ? 'Высокотехнологичные кроссовки Asics Gel-Kahana TR V2 для активного образа жизни. Современная модель с технологией Gel для максимального комфорта и амортизации. Прочная конструкция и стильный дизайн делают их идеальными для тренировок и повседневной носки.'
+                  : 'Классические кроссовки Nike Air Force 1 в черном цвете. Легендарная модель баскетбольной обуви, ставшая иконой уличной моды. Премиальная кожа, удобная посадка и узнаваемый дизайн делают их идеальным выбором для повседневной носки.'
                 }
               </p>
             </div>
@@ -245,7 +247,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? '80% хлопок, 20% полиэстер' 
                       : product.name.includes('Ветровки')
                       ? '100% полиэстер'
-                      : product.name.includes('Кроссовки')
+                      : product.name.includes('Nike')
+                      ? 'Натуральная кожа'
+                      : product.name.includes('Asics')
                       ? 'Синтетика, текстиль'
                       : '100% хлопок'
                     }
@@ -254,7 +258,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                 <div className="flex justify-between">
                   <span>Цвет:</span>
                   <span>
-                    {product.name.includes('Кроссовки')
+                    {product.name.includes('Nike')
+                      ? 'Черный'
+                      : product.name.includes('Asics')
                       ? 'Серый/Белый'
                       : product.name.includes('Essentials') 
                       ? 'Белый' 
@@ -280,7 +286,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Fear Of God Essentials'
                       : product.name.includes('Yeezy')
                       ? 'Yeezy'
-                      : product.name.includes('Кроссовки')
+                      : product.name.includes('Nike')
+                      ? 'Nike'
+                      : product.name.includes('Asics')
                       ? 'Asics'
                       : 'ERD (Enfants Riches Déprimés)'
                     }
@@ -306,7 +314,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Минималистичный логотип'
                       : product.name.includes('Yeezy')
                       ? 'Bully graphic art'
-                      : product.name.includes('Кроссовки')
+                      : product.name.includes('Nike')
+                      ? 'Air амортизация'
+                      : product.name.includes('Asics')
                       ? 'Gel амортизация'
                       : 'Chinese art design'
                     }
