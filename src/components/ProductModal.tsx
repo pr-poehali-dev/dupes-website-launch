@@ -202,18 +202,7 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
               </Button>
             </div>
 
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <div className="flex items-center mb-2">
-                <Icon name="Info" size={18} className="text-violet mr-2" />
-                <span className="font-montserrat font-semibold text-slate">
-                  Информация о доставке
-                </span>
-              </div>
-              <p className="text-sm text-gray-600">
-                Доставка по России от 300₽. При заказе от 5000₽ — бесплатная доставка.
-                Оплата при получении или переводом на карту.
-              </p>
-            </div>
+
           </div>
         </div>
       </DialogContent>
