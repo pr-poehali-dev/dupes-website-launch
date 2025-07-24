@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from '@/components/ui/icon';
 import { useState } from 'react';
+import { useCart } from '@/contexts/CartContext';
+import { toast } from 'sonner';
 
 interface ProductModalProps {
   product: {
@@ -34,6 +36,8 @@ interface ProductModalProps {
 const ProductModal = ({ product, onClose, products = [], onProductChange }: ProductModalProps) => {
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [quantity, setQuantity] = useState<number>(1);
+  const { addToCart } = useCart();
   
   const images = product.images || [product.image];
   const currentImage = images[selectedImageIndex];
@@ -58,13 +62,21 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
     }
   };
 
-  const handleOrder = () => {
-    const message = selectedSize 
-      ? `Хочу заказать ${product.name}, размер ${selectedSize}, цена ${product.price}`
-      : `Хочу заказать ${product.name}, цена ${product.price}`;
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      toast.error('Пожалуйста, выберите размер');
+      return;
+    }
     
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/79029903444?text=${encodedMessage}`, '_blank');
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      size: selectedSize,
+      image: product.image
+    }, quantity);
+    
+    onClose();
   };
 
   return (
@@ -439,26 +451,38 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
               </div>
             </div>
 
-            <div className="space-y-3">
-              <Button 
-                onClick={handleOrder}
-                className="w-full bg-violet hover:bg-violet/90 text-white font-montserrat font-semibold py-3"
-                size="lg"
-              >
-                <Icon name="MessageCircle" size={20} className="mr-2" />
-                Заказать в WhatsApp
-              </Button>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="font-montserrat font-semibold text-slate">Количество:</span>
+                <div className="flex items-center gap-3">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    className="h-8 w-8"
+                  >
+                    <Icon name="Minus" size={16} />
+                  </Button>
+                  <span className="font-montserrat font-semibold text-lg w-8 text-center">{quantity}</span>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="h-8 w-8"
+                  >
+                    <Icon name="Plus" size={16} />
+                  </Button>
+                </div>
+              </div>
               
               <Button 
-                asChild
-                variant="outline" 
-                className="w-full border-violet text-violet hover:bg-violet hover:text-white font-montserrat font-semibold py-3"
+                onClick={handleAddToCart}
+                className="w-full bg-violet hover:bg-violet/90 text-white font-montserrat font-semibold py-3"
                 size="lg"
+                disabled={!selectedSize}
               >
-                <a href="tel:+79029903444">
-                  <Icon name="Phone" size={20} className="mr-2" />
-                  Позвонить
-                </a>
+                <Icon name="ShoppingCart" size={20} className="mr-2" />
+                Добавить в корзину
               </Button>
             </div>
 

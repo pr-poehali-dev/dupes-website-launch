@@ -1,10 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from '@/components/ui/icon';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useCart } from '@/contexts/CartContext';
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { getTotalItems } = useCart();
+  const totalItems = getTotalItems();
 
   return (
     <header className="relative z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 sticky top-0">
@@ -18,13 +22,18 @@ const Header = () => {
             />
             <div className="hidden md:flex space-x-6">
               <a 
-                href="#home" 
+                href={location.pathname === '/' ? "#home" : "/"} 
                 className="text-slate font-medium hover:text-violet transition-colors"
                 onClick={(e) => {
-                  e.preventDefault();
-                  const homeSection = document.querySelector('[data-section="home"]') || document.querySelector('body');
-                  if (homeSection) {
-                    homeSection.scrollIntoView({ behavior: 'smooth' });
+                  if (location.pathname === '/') {
+                    e.preventDefault();
+                    const homeSection = document.querySelector('[data-section="home"]') || document.querySelector('body');
+                    if (homeSection) {
+                      homeSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  } else {
+                    e.preventDefault();
+                    navigate('/');
                   }
                 }}
               >
@@ -109,9 +118,11 @@ const Header = () => {
             >
               <Icon name="ShoppingBag" size={20} className="mr-2" />
               <span className="hidden sm:inline">Корзина</span>
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                0
-              </span>
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
             </Button>
             <Button variant="outline" className="md:hidden">
               <Icon name="Menu" size={20} />
