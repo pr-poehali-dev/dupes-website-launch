@@ -420,7 +420,7 @@ const Catalog = () => {
 
   return (
     <>
-    <section className="py-16 bg-gray-50" data-section="catalog">
+    <section id="catalog" className="py-16 bg-gray-50" data-section="catalog">
       <div className="container mx-auto px-4">
         <h2 className="font-montserrat text-4xl font-bold text-center text-slate mb-12">
           Каталог товаров
