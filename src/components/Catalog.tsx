@@ -36,13 +36,13 @@ const Catalog = () => {
     price: "2800₽",
     sizes: ["• S", "• M", "• L", "• XL"],
     sizeNumbers: ["1", "2", "3", "4"],
-    image: "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
+    image: "https://cdn.poehali.dev/files/20fbb4e7-7666-4356-bbcd-958b550d99d0.jpeg",
     images: [
-      "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
-      "https://cdn.poehali.dev/files/f86c1960-0000-4cc2-9b7f-938bfd7bb84d.jpeg",
-      "https://cdn.poehali.dev/files/80547b99-0fd2-4487-b64b-859d408a7927.jpeg",
-      "https://cdn.poehali.dev/files/feb0b30c-f51c-4a23-adb3-3b544fc6f7fa.jpeg",
-      "https://cdn.poehali.dev/files/8f315ae4-535c-4c92-8ac8-074edcda00d5.jpeg"
+      "https://cdn.poehali.dev/files/20fbb4e7-7666-4356-bbcd-958b550d99d0.jpeg",
+      "https://cdn.poehali.dev/files/f0c00fe4-917a-40ec-a10b-0cb658283ecf.jpeg",
+      "https://cdn.poehali.dev/files/65f9aabf-91fd-4eed-b0af-b22cf6aff17d.jpeg",
+      "https://cdn.poehali.dev/files/147c728d-7297-464b-a2cd-443f9810e91f.jpeg",
+      "https://cdn.poehali.dev/files/8c2fdead-7618-40d8-a147-7df9cc46f7f3.jpeg"
     ],
     isNew: false,
     discount: null
