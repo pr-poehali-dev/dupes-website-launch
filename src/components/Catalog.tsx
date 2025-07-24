@@ -95,6 +95,11 @@ const Catalog = () => {
       sizes: ["S", "M", "L"],
       sizeNumbers: ["1", "2", "3"],
       image: "https://cdn.poehali.dev/files/f40ea812-995a-46d2-887b-acd99d98cffc.jpeg",
+      images: [
+        "https://cdn.poehali.dev/files/f40ea812-995a-46d2-887b-acd99d98cffc.jpeg",
+        "https://cdn.poehali.dev/files/411f51b9-2ec6-41ec-8023-47ea8cc47c50.jpeg",
+        "https://cdn.poehali.dev/files/0dd01b55-3ef2-4e41-b377-9a90a70429f1.jpeg"
+      ],
       isNew: false,
       discount: null
     }
