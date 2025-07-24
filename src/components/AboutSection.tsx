@@ -52,9 +52,9 @@ const AboutSection = () => {
             </Card>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-montserrat font-bold text-violet mb-2">1000+</div>
+              <div className="text-4xl font-montserrat font-bold text-violet mb-2">100+</div>
               <p className="text-gray-600">Единиц товара</p>
             </div>
             <div>
@@ -64,10 +64,6 @@ const AboutSection = () => {
             <div>
               <div className="text-4xl font-montserrat font-bold text-orange mb-2">98%</div>
               <p className="text-gray-600">Положительных отзывов</p>
-            </div>
-            <div>
-              <div className="text-4xl font-montserrat font-bold text-slate mb-2">2 года</div>
-              <p className="text-gray-600">На рынке</p>
             </div>
           </div>
         </div>

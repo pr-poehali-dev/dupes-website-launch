@@ -33,7 +33,7 @@ const Footer = () => {
             <h4 className="font-montserrat font-semibold mb-4">Информация</h4>
             <ul className="space-y-2 text-sm text-white/60">
               <li><a href="#delivery" className="hover:text-white transition-colors">Доставка и оплата</a></li>
-              <li><a href="#sizes" className="hover:text-white transition-colors">Размерная сетка</a></li>
+
               <li><a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Скидки</a></li>
               <li><a href="#contacts" className="hover:text-white transition-colors">Контакты</a></li>
             </ul>
@@ -42,9 +42,7 @@ const Footer = () => {
           <div>
             <h4 className="font-montserrat font-semibold mb-4">Мы в соцсетях</h4>
             <div className="flex space-x-4">
-              <a href="tel:+79029903444" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-emerald transition-colors">
-                <Icon name="Phone" size={20} />
-              </a>
+
               <a href="mailto:info@dupes.ru" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-violet transition-colors">
                 <Icon name="Mail" size={20} />
               </a>

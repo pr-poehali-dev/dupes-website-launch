@@ -9,7 +9,7 @@ const ContactsSection = () => {
         <h2 className="font-montserrat text-4xl font-bold text-center mb-12">
           Контакты
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center">
             <div className="bg-violet/30 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Icon name="MapPin" size={40} className="text-white" />
@@ -20,20 +20,6 @@ const ContactsSection = () => {
               ул. Шумяцкого, 5
             </p>
             <p className="text-white/60 text-sm">Ежедневно с 10:00 до 21:00</p>
-          </Card>
-          
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center">
-            <div className="bg-emerald/30 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Icon name="Phone" size={40} className="text-white" />
-            </div>
-            <h3 className="font-montserrat font-semibold text-xl mb-4">Телефон менеджера</h3>
-            <p className="text-white/80 mb-3">
-              <a href="tel:+79029903444" className="hover:text-emerald transition-colors text-lg font-medium">
-                +7 (902) 990-34-44
-              </a>
-            </p>
-
-            <p className="text-white/60 text-xs">Ответим в течение 5 минут</p>
           </Card>
           
           <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center">

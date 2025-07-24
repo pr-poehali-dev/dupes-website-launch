@@ -91,19 +91,7 @@ const Header = () => {
               >
                 Контакты
               </a>
-              <a 
-                href="#sizes" 
-                className="text-slate font-medium hover:text-violet transition-colors"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const sizesSection = document.querySelector('[data-section="sizes"]');
-                  if (sizesSection) {
-                    sizesSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                Размеры
-              </a>
+
             </div>
           </div>
           <div className="flex items-center space-x-4">

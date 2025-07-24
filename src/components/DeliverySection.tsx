@@ -61,15 +61,7 @@ const DeliverySection = () => {
               </li>
               <li className="flex items-center">
                 <Icon name="Check" size={18} className="text-violet mr-3 flex-shrink-0" />
-                <span><strong>Банковской картой</strong> online или курьеру</span>
-              </li>
-              <li className="flex items-center">
-                <Icon name="Check" size={18} className="text-violet mr-3 flex-shrink-0" />
                 <span><strong>Переводом на карту</strong> Сбербанк</span>
-              </li>
-              <li className="flex items-center">
-                <Icon name="Check" size={18} className="text-violet mr-3 flex-shrink-0" />
-                <span><strong>Через СБП</strong> — мгновенно</span>
               </li>
             </ul>
             <div className="mt-6 p-4 bg-violet/5 rounded-xl">

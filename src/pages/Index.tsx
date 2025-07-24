@@ -4,7 +4,7 @@ import SpecialOffers from "@/components/SpecialOffers";
 import Catalog from "@/components/Catalog";
 import AboutSection from "@/components/AboutSection";
 import DeliverySection from "@/components/DeliverySection";
-import SizesGuide from "@/components/SizesGuide";
+
 import ContactsSection from "@/components/ContactsSection";
 import Footer from "@/components/Footer";
 
@@ -17,7 +17,7 @@ const Index = () => {
       <Catalog />
       <AboutSection />
       <DeliverySection />
-      <SizesGuide />
+
       <ContactsSection />
       <Footer />
     </div>
