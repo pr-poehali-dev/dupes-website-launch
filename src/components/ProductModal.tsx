@@ -219,12 +219,20 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
               <h3 className="font-montserrat font-semibold text-lg text-slate">
                 Выберите размер
               </h3>
-              {product.name.includes('Кроссовки') || product.name.includes('Crocs') ? (
-                <div className="space-y-1 text-gray-700">
-                  {product.sizes.map((size) => (
-                    <div key={size} className="text-sm">
+              {product.name.includes('Кроссовки') || product.name.includes('Crocs') || product.name.includes('Adidas') ? (
+                <div className="space-y-2">
+                  {product.sizes.map((size, index) => (
+                    <Button
+                      key={size}
+                      variant={selectedSize === product.sizeNumbers[index] ? "default" : "outline"}
+                      className={`w-full justify-start text-sm h-auto py-2 ${selectedSize === product.sizeNumbers[index]
+                        ? 'bg-violet hover:bg-violet/90 text-white'
+                        : 'hover:bg-gray-50'
+                      }`}
+                      onClick={() => setSelectedSize(product.sizeNumbers[index])}
+                    >
                       • {size}
-                    </div>
+                    </Button>
                   ))}
                 </div>
               ) : (
@@ -344,7 +352,7 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Принт:' 
                       : product.name.includes('Ветровки')
                       ? 'Особенности:'
-                      : product.name.includes('Кроссовки')
+                      : product.name.includes('Кроссовки') || product.name.includes('Adidas')
                       ? 'Технология:'
                       : 'Принт:'
                     }

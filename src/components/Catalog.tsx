@@ -305,7 +305,7 @@ const Catalog = () => {
         products={
           selectedProduct.name.includes('longsleeve') || selectedProduct.name.includes('Essentials') 
             ? longsleeveProducts 
-            : selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs')
+            : selectedProduct.name.includes('Кроссовки') || selectedProduct.name.includes('Crocs') || selectedProduct.name.includes('Adidas')
             ? sneakersProducts
             : [selectedProduct]
         }
