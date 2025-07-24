@@ -110,7 +110,7 @@ const Catalog = () => {
       price: "2000₽",
       sizes: ["41 EU — 24 см", "42 EU — 25 см", "43 EU — 26 см", "44 EU — 27 см"],
       sizeNumbers: ["41", "42", "43", "44"],
-      image: "img/87a85cba-a852-4e08-a956-10bd39c8700a.jpg",
+      image: "https://cdn.poehali.dev/files/580aeec3-d1fd-43a3-9ffa-d801106f8a9c.jpeg",
       isNew: false,
       discount: null
     }
