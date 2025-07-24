@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from '@/components/ui/icon';
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <header className="relative z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200 sticky top-0">
       <div className="container mx-auto px-4 py-4">
@@ -102,10 +105,7 @@ const Header = () => {
             <Button 
               variant="outline" 
               className="relative border-violet text-violet hover:bg-violet hover:text-white transition-colors"
-              onClick={() => {
-                // Функционал корзины будет добавлен позже
-                console.log('Открыть корзину');
-              }}
+              onClick={() => navigate('/cart')}
             >
               <Icon name="ShoppingBag" size={20} className="mr-2" />
               <span className="hidden sm:inline">Корзина</span>
