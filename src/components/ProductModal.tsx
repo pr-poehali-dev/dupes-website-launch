@@ -203,24 +203,34 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
               <h3 className="font-montserrat font-semibold text-lg text-slate">
                 Выберите размер
               </h3>
-              <div className="grid grid-cols-5 gap-2">
-                {product.sizes.map((size, index) => (
-                  <Button
-                    key={size}
-                    variant={selectedSize === size ? "default" : "outline"}
-                    className={`${selectedSize === size 
-                      ? 'bg-violet hover:bg-violet/90 text-white' 
-                      : 'hover:border-violet hover:text-violet'
-                    }`}
-                    onClick={() => setSelectedSize(size)}
-                  >
-                    <div className="text-center">
-                      <div className="font-bold">{size}</div>
-                      <div className="text-xs opacity-70">({product.sizeNumbers[index]})</div>
+              {product.name.includes('Кроссовки') ? (
+                <div className="space-y-1 text-gray-700">
+                  {product.sizes.map((size) => (
+                    <div key={size} className="text-sm">
+                      • {size}
                     </div>
-                  </Button>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-5 gap-2">
+                  {product.sizes.map((size, index) => (
+                    <Button
+                      key={size}
+                      variant={selectedSize === size ? "default" : "outline"}
+                      className={`${selectedSize === size 
+                        ? 'bg-violet hover:bg-violet/90 text-white' 
+                        : 'hover:border-violet hover:text-violet'
+                      }`}
+                      onClick={() => setSelectedSize(size)}
+                    >
+                      <div className="text-center">
+                        <div className="font-bold">{size}</div>
+                        <div className="text-xs opacity-70">({product.sizeNumbers[index]})</div>
+                      </div>
+                    </Button>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="space-y-3">
