@@ -45,9 +45,6 @@ const Footer = () => {
               <a href="https://t.me/dupeess" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-violet transition-colors">
                 <Icon name="Send" size={20} />
               </a>
-              <a href="mailto:info@dupes.ru" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-violet transition-colors">
-                <Icon name="Mail" size={20} />
-              </a>
             </div>
           </div>
         </div>
