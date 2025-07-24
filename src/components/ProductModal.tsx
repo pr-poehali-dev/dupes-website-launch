@@ -17,14 +17,46 @@ interface ProductModalProps {
     discount?: number;
   };
   onClose: () => void;
+  products?: {
+    id: number;
+    name: string;
+    price: string;
+    sizes: string[];
+    sizeNumbers: string[];
+    image: string;
+    images?: string[];
+    isNew?: boolean;
+    discount?: number;
+  }[];
+  onProductChange?: (product: any) => void;
 }
 
-const ProductModal = ({ product, onClose }: ProductModalProps) => {
+const ProductModal = ({ product, onClose, products = [], onProductChange }: ProductModalProps) => {
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   
   const images = product.images || [product.image];
   const currentImage = images[selectedImageIndex];
+  
+  const currentProductIndex = products.findIndex(p => p.id === product.id);
+  const canNavigatePrev = products.length > 1 && currentProductIndex > 0;
+  const canNavigateNext = products.length > 1 && currentProductIndex < products.length - 1;
+  
+  const handlePrevProduct = () => {
+    if (canNavigatePrev && onProductChange) {
+      onProductChange(products[currentProductIndex - 1]);
+      setSelectedSize('');
+      setSelectedImageIndex(0);
+    }
+  };
+  
+  const handleNextProduct = () => {
+    if (canNavigateNext && onProductChange) {
+      onProductChange(products[currentProductIndex + 1]);
+      setSelectedSize('');
+      setSelectedImageIndex(0);
+    }
+  };
 
   const handleOrder = () => {
     const message = selectedSize 
@@ -39,9 +71,36 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
     <Dialog open={true} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="font-montserrat text-2xl text-slate">
-            {product.name}
-          </DialogTitle>
+          <div className="flex items-center justify-between">
+            <DialogTitle className="font-montserrat text-2xl text-slate">
+              {product.name}
+            </DialogTitle>
+            {products.length > 1 && (
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handlePrevProduct}
+                  disabled={!canNavigatePrev}
+                  className="p-2"
+                >
+                  <Icon name="ChevronLeft" size={16} />
+                </Button>
+                <span className="text-sm text-gray-500">
+                  {currentProductIndex + 1} из {products.length}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleNextProduct}
+                  disabled={!canNavigateNext}
+                  className="p-2"
+                >
+                  <Icon name="ChevronRight" size={16} />
+                </Button>
+              </div>
+            )}
+          </div>
         </DialogHeader>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -131,7 +190,9 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                   ? 'Классическая спортивная ветровка Adidas с белыми полосками. Легкая и функциональная модель с фирменным логотипом trefoil. Отличная защита от ветра, идеальна для спорта и повседневной носки.'
                   : product.name.includes('Футболка')
                   ? 'Эксклюзивная футболка ERD (Enfants Riches Déprimés) с художественным принтом в китайском стиле. Высококачественный хлопок, оверсайз крой. Стильная модель для ценителей уличной моды и арт-дизайна.'
-                  : 'Лаконичный лонгслив из коллекции Essentials Fear Of God. Белая модель с минималистичным логотипом бренда. Высококачественный хлопок, комфортная посадка. Идеальный базовый элемент гардероба для ценителей премиальной уличной моды.'
+                  : product.name.includes('Essentials')
+                  ? 'Лаконичный лонгслив из коллекции Essentials Fear Of God. Белая модель с минималистичным логотипом бренда. Высококачественный хлопок, комфортная посадка. Идеальный базовый элемент гардероба для ценителей премиальной уличной моды.'
+                  : 'Эксклюзивный лонгслив Yeezy Bully с провокационным принтом. Белая модель с контрастным черно-белым изображением. Высококачественный хлопок, комфортная посадка. Идеальный выбор для любителей уличной моды и коллекционеров Yeezy.'
                 }
               </p>
             </div>
@@ -201,6 +262,8 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                       ? 'Adidas Originals'
                       : product.name.includes('Essentials')
                       ? 'Fear Of God Essentials'
+                      : product.name.includes('Yeezy')
+                      ? 'Yeezy'
                       : 'ERD (Enfants Riches Déprimés)'
                     }
                   </span>
@@ -221,6 +284,8 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                       ? 'Белые полоски, логотип trefoil'
                       : product.name.includes('Essentials')
                       ? 'Минималистичный логотип'
+                      : product.name.includes('Yeezy')
+                      ? 'Bully graphic art'
                       : 'Chinese art design'
                     }
                   </span>

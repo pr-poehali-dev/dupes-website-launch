@@ -40,16 +40,28 @@ const Catalog = () => {
     discount: null
   };
 
-  const longsleeveProduct = {
-    id: 4,
-    name: "Лонгслив Essentials Fear Of God",
-    price: "2900₽",
-    sizes: ["M", "L"],
-    sizeNumbers: ["2", "3"],
-    image: "https://cdn.poehali.dev/files/ae753281-4873-45e2-95bc-0da68de6851b.jpeg",
-    isNew: false,
-    discount: null
-  };
+  const longsleeveProducts = [
+    {
+      id: 4,
+      name: "Лонгслив Essentials Fear Of God",
+      price: "2900₽",
+      sizes: ["M", "L"],
+      sizeNumbers: ["2", "3"],
+      image: "https://cdn.poehali.dev/files/ae753281-4873-45e2-95bc-0da68de6851b.jpeg",
+      isNew: false,
+      discount: null
+    },
+    {
+      id: 5,
+      name: "Yeezy Bully longsleeve",
+      price: "2900₽",
+      sizes: ["S", "M", "L"],
+      sizeNumbers: ["1", "2", "3"],
+      image: "https://cdn.poehali.dev/files/f40ea812-995a-46d2-887b-acd99d98cffc.jpeg",
+      isNew: false,
+      discount: null
+    }
+  ];
   
   const openHoodieModal = () => {
     setSelectedProduct(hoodieProduct);
@@ -64,7 +76,7 @@ const Catalog = () => {
   };
 
   const openLongsleeveModal = () => {
-    setSelectedProduct(longsleeveProduct);
+    setSelectedProduct(longsleeveProducts[0]);
   };
   
   const closeProductModal = () => {
@@ -190,7 +202,9 @@ const Catalog = () => {
     {selectedProduct && (
       <ProductModal 
         product={selectedProduct} 
-        onClose={closeProductModal} 
+        onClose={closeProductModal}
+        products={selectedProduct.name.includes('longsleeve') || selectedProduct.name.includes('Essentials') ? longsleeveProducts : [selectedProduct]}
+        onProductChange={setSelectedProduct}
       />
     )}
     </>
