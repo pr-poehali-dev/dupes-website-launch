@@ -4,13 +4,20 @@ import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 import ProductModal from './ProductModal';
 
-interface CatalogProps {
-  onGoToCaps?: () => void;
-}
-
-const Catalog = ({ onGoToCaps }: CatalogProps) => {
+const Catalog = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   
+  const capProduct = {
+    id: 100,
+    name: "Кепка Diesel",
+    price: "1700₽",
+    sizes: ["One Size — 56-60 см"],
+    sizeNumbers: ["One Size"],
+    image: "https://cdn.poehali.dev/files/90b65f07-773b-48d6-84b5-e150790febc2.jpeg",
+    isNew: true,
+    discount: null
+  };
+
   const hoodieProduct = {
     id: 1,
     name: "Худи Гоша Рубчинский х Kanye West Черные псы",
@@ -249,6 +256,10 @@ const Catalog = ({ onGoToCaps }: CatalogProps) => {
   const openSneakersModal = () => {
     setSelectedProduct(sneakersProducts[0]);
   };
+
+  const openCapModal = () => {
+    setSelectedProduct(capProduct);
+  };
   
   const closeProductModal = () => {
     setSelectedProduct(null);
@@ -356,8 +367,8 @@ const Catalog = ({ onGoToCaps }: CatalogProps) => {
                     openLongsleeveModal();
                   } else if (category.id === 'sneakers') {
                     openSneakersModal();
-                  } else if (category.id === 'caps' && onGoToCaps) {
-                    onGoToCaps();
+                  } else if (category.id === 'caps') {
+                    openCapModal();
                   } else {
                     const catalogSection = document.getElementById(category.id);
                     if (catalogSection) {
