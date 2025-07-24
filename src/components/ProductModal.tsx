@@ -192,7 +192,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                   ? 'Эксклюзивная футболка ERD (Enfants Riches Déprimés) с художественным принтом в китайском стиле. Высококачественный хлопок, оверсайз крой. Стильная модель для ценителей уличной моды и арт-дизайна.'
                   : product.name.includes('Essentials')
                   ? 'Лаконичный лонгслив из коллекции Essentials Fear Of God. Белая модель с минималистичным логотипом бренда. Высококачественный хлопок, комфортная посадка. Идеальный базовый элемент гардероба для ценителей премиальной уличной моды.'
-                  : 'Эксклюзивный лонгслив Yeezy Bully с провокационным принтом. Белая модель с контрастным черно-белым изображением. Высококачественный хлопок, комфортная посадка. Идеальный выбор для любителей уличной моды и коллекционеров Yeezy.'
+                  : product.name.includes('Yeezy')
+                  ? 'Эксклюзивный лонгслив Yeezy Bully с провокационным принтом. Белая модель с контрастным черно-белым изображением. Высококачественный хлопок, комфортная посадка. Идеальный выбор для любителей уличной моды и коллекционеров Yeezy.'
+                  : 'Высокотехнологичные кроссовки Asics Gel-Kahana TR V2 для активного образа жизни. Современная модель с технологией Gel для максимального комфорта и амортизации. Прочная конструкция и стильный дизайн делают их идеальными для тренировок и повседневной носки.'
                 }
               </p>
             </div>
@@ -233,6 +235,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? '80% хлопок, 20% полиэстер' 
                       : product.name.includes('Ветровки')
                       ? '100% полиэстер'
+                      : product.name.includes('Кроссовки')
+                      ? 'Синтетика, текстиль'
                       : '100% хлопок'
                     }
                   </span>
@@ -240,7 +244,9 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                 <div className="flex justify-between">
                   <span>Цвет:</span>
                   <span>
-                    {product.name.includes('Essentials') 
+                    {product.name.includes('Кроссовки')
+                      ? 'Серый/Белый'
+                      : product.name.includes('Essentials') 
                       ? 'Белый' 
                       : product.name.includes('Футболка') 
                       ? 'Черный' 
@@ -264,6 +270,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Fear Of God Essentials'
                       : product.name.includes('Yeezy')
                       ? 'Yeezy'
+                      : product.name.includes('Кроссовки')
+                      ? 'Asics'
                       : 'ERD (Enfants Riches Déprimés)'
                     }
                   </span>
@@ -274,6 +282,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Принт:' 
                       : product.name.includes('Ветровки')
                       ? 'Особенности:'
+                      : product.name.includes('Кроссовки')
+                      ? 'Технология:'
                       : 'Принт:'
                     }
                   </span>
@@ -286,6 +296,8 @@ const ProductModal = ({ product, onClose, products = [], onProductChange }: Prod
                       ? 'Минималистичный логотип'
                       : product.name.includes('Yeezy')
                       ? 'Bully graphic art'
+                      : product.name.includes('Кроссовки')
+                      ? 'Gel амортизация'
                       : 'Chinese art design'
                     }
                   </span>

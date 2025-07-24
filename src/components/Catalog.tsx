@@ -62,6 +62,17 @@ const Catalog = () => {
       discount: null
     }
   ];
+
+  const sneakersProduct = {
+    id: 6,
+    name: "Кроссовки Asics Gel-Kahana TR V2",
+    price: "2900₽",
+    sizes: ["36", "37", "38", "39", "40", "41"],
+    sizeNumbers: ["36", "37", "38", "39", "40", "41"],
+    image: "https://cdn.poehali.dev/files/90caf808-95e1-4c25-96a2-6c4a8fdfb9e3.jpeg",
+    isNew: false,
+    discount: null
+  };
   
   const openHoodieModal = () => {
     setSelectedProduct(hoodieProduct);
@@ -77,6 +88,10 @@ const Catalog = () => {
 
   const openLongsleeveModal = () => {
     setSelectedProduct(longsleeveProducts[0]);
+  };
+
+  const openSneakersModal = () => {
+    setSelectedProduct(sneakersProduct);
   };
   
   const closeProductModal = () => {
@@ -183,6 +198,8 @@ const Catalog = () => {
                     openTshirtModal();
                   } else if (category.id === 'longsleeves') {
                     openLongsleeveModal();
+                  } else if (category.id === 'sneakers') {
+                    openSneakersModal();
                   } else {
                     const catalogSection = document.getElementById(category.id);
                     if (catalogSection) {
