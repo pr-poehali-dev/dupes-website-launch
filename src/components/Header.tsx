@@ -16,7 +16,7 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <img 
-              src="https://cdn.poehali.dev/files/4b90b720-99f8-4afe-af1c-03a81655709c.jpeg" 
+              src="https://cdn.poehali.dev/files/f0511fd2-5a4d-4420-b768-b661dfdce65f.jpeg" 
               alt="DUPES Logo" 
               className="h-12 w-auto object-contain"
             />
