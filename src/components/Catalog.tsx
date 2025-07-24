@@ -14,6 +14,7 @@ const Catalog = () => {
     sizes: ["One Size — 56-60 см"],
     sizeNumbers: ["One Size"],
     image: "https://cdn.poehali.dev/files/90b65f07-773b-48d6-84b5-e150790febc2.jpeg",
+    images: ["https://cdn.poehali.dev/files/90b65f07-773b-48d6-84b5-e150790febc2.jpeg"],
     isNew: true,
     discount: null
   };
@@ -36,6 +37,13 @@ const Catalog = () => {
     sizes: ["• S", "• M", "• L", "• XL"],
     sizeNumbers: ["1", "2", "3", "4"],
     image: "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
+    images: [
+      "https://cdn.poehali.dev/files/95f76274-dbc1-4a60-92ca-19899cb8deaa.jpeg",
+      "https://cdn.poehali.dev/files/f86c1960-0000-4cc2-9b7f-938bfd7bb84d.jpeg",
+      "https://cdn.poehali.dev/files/80547b99-0fd2-4487-b64b-859d408a7927.jpeg",
+      "https://cdn.poehali.dev/files/feb0b30c-f51c-4a23-adb3-3b544fc6f7fa.jpeg",
+      "https://cdn.poehali.dev/files/8f315ae4-535c-4c92-8ac8-074edcda00d5.jpeg"
+    ],
     isNew: false,
     discount: null
   };
