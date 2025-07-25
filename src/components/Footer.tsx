@@ -8,14 +8,14 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <img 
-                src="https://cdn.poehali.dev/files/f0511fd2-5a4d-4420-b768-b661dfdce65f.jpeg" 
+                src="https://cdn.poehali.dev/files/ea471010-66a9-487a-8b50-2b6dca7b9572.jpeg" 
                 alt="DUPES Logo" 
                 className="h-10 w-auto object-contain mr-3"
               />
               <span className="font-montserrat font-bold text-xl">DUPES</span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed">
-              Модная одежда по доступным ценам. Твой стиль — наша забота.
+              DUPES — магазин качественной и стильной одежды по маленькой цене.
             </p>
           </div>
           
