@@ -3,11 +3,9 @@ import { Button } from "@/components/ui/button";
 import Icon from '@/components/ui/icon';
 import { useState } from 'react';
 import ProductModal from './ProductModal';
-import CategoryPage from './CategoryPage';
 
 const Catalog = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
   
   const capProduct = {
     id: 100,
@@ -357,14 +355,6 @@ const Catalog = () => {
   const closeProductModal = () => {
     setSelectedProduct(null);
   };
-
-  const openCategory = (categoryId) => {
-    setSelectedCategory(categoryId);
-  };
-
-  const closeCategoryPage = () => {
-    setSelectedCategory(null);
-  };
   const categories = [
     {
       id: 'hoodies',
@@ -428,83 +418,6 @@ const Catalog = () => {
     }
   ];
 
-  // Функция для получения товаров по категории
-  const getCategoryProducts = (categoryId) => {
-    switch (categoryId) {
-      case 'hoodies':
-        return [hoodieProduct, {
-          ...hoodieProduct,
-          id: 101,
-          name: "Худи Supreme Classic",
-          price: "2800₽"
-        }, {
-          ...hoodieProduct,
-          id: 102,
-          name: "Худи Off-White Basic",
-          price: "3500₽"
-        }];
-      case 'windbreakers':
-        return [windbreakerProduct, {
-          ...windbreakerProduct,
-          id: 103,
-          name: "Ветровка Nike Windrunner",
-          price: "2500₽"
-        }, {
-          ...windbreakerProduct,
-          id: 104,
-          name: "Ветровка Adidas Classic",
-          price: "3200₽"
-        }];
-      case 'tshirts':
-        return [tshirtProduct, {
-          ...tshirtProduct,
-          id: 105,
-          name: "Футболка Nike Basic",
-          price: "1800₽"
-        }, {
-          ...tshirtProduct,
-          id: 106,
-          name: "Футболка Adidas Sport",
-          price: "2200₽"
-        }];
-      case 'longsleeves':
-        return longsleeveProducts;
-      case 'sneakers':
-        return sneakersProducts;
-      case 'caps':
-        return [capProduct, {
-          ...capProduct,
-          id: 107,
-          name: "Кепка Nike Classic",
-          price: "1200₽"
-        }, {
-          ...capProduct,
-          id: 108,
-          name: "Кепка Adidas Sport",
-          price: "2000₽"
-        }];
-      default:
-        return [];
-    }
-  };
-
-  // Функция для получения названия категории
-  const getCategoryTitle = (categoryId) => {
-    const category = categories.find(cat => cat.id === categoryId);
-    return category ? category.name : '';
-  };
-
-  // Если выбрана категория, показываем страницу категории
-  if (selectedCategory) {
-    return (
-      <CategoryPage
-        title={getCategoryTitle(selectedCategory)}
-        products={getCategoryProducts(selectedCategory)}
-        onBack={closeCategoryPage}
-      />
-    );
-  }
-
   return (
     <>
     <section id="catalog" className="py-16 bg-gray-50" data-section="catalog">
@@ -534,7 +447,26 @@ const Catalog = () => {
               <Button 
                 variant="outline" 
                 className={`w-full ${category.buttonClass} hover:text-white`}
-onClick={() => openCategory(category.id)}
+                onClick={() => {
+                  if (category.id === 'hoodies') {
+                    openHoodieModal();
+                  } else if (category.id === 'windbreakers') {
+                    openWindbreakerModal();
+                  } else if (category.id === 'tshirts') {
+                    openTshirtModal();
+                  } else if (category.id === 'longsleeves') {
+                    openLongsleeveModal();
+                  } else if (category.id === 'sneakers') {
+                    openSneakersModal();
+                  } else if (category.id === 'caps') {
+                    openCapModal();
+                  } else {
+                    const catalogSection = document.getElementById(category.id);
+                    if (catalogSection) {
+                      catalogSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
+                }}
               >
                 Перейти в раздел
               </Button>
