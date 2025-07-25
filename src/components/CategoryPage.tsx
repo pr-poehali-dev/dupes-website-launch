@@ -155,8 +155,8 @@ const CategoryPage = ({ title, products, onBack }: CategoryPageProps) => {
             </div>
           )}
 
-          {/* Сетка товаров - всегда 4 колонки */}
-          <div className="grid grid-cols-4 gap-6">
+          {/* Сетка товаров - 4 колонки на десктопе, адаптивно на мобильных */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {displayedProducts.map(product => (
               <Card 
                 key={product.id}
@@ -202,8 +202,24 @@ const CategoryPage = ({ title, products, onBack }: CategoryPageProps) => {
           {/* Индикатор загрузки */}
           {isLoading && (
             <div className="flex justify-center items-center py-8">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-dark"></div>
-              <span className="ml-3 text-slate">Загружаем товары...</span>
+              <div className="flex items-center gap-3 text-slate">
+                <Icon name="Loader2" size={24} className="animate-spin" />
+                <span className="text-lg font-medium">Загружаем товары...</span>
+              </div>
+            </div>
+          )}
+
+          {/* Кнопка "Показать еще" если остались товары */}
+          {!isLoading && displayedProducts.length < filteredProducts.length && (
+            <div className="flex justify-center mt-8">
+              <Button 
+                onClick={loadMoreProducts}
+                variant="outline" 
+                className="px-8 py-3 text-slate border-slate hover:bg-slate hover:text-white"
+              >
+                <Icon name="Plus" size={16} className="mr-2" />
+                Показать еще товары ({filteredProducts.length - displayedProducts.length})
+              </Button>
             </div>
           )}
 
